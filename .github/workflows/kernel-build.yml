@@ -1,0 +1,126 @@
+# 用法：把本文件放到仓库的 .github/workflows/ 下，推到 GitHub，
+#       然后在 Actions 页面点 "Run workflow"。见 方案B_C_执行手册.md §4。
+name: build-mt6761-kernel
+
+on:
+  workflow_dispatch:
+    inputs:
+      defconfig:
+        description: "内核 defconfig"
+        type: choice
+        default: k61v1_64_bsp_defconfig
+        options:
+          - k61v1_64_bsp_defconfig      # 64 位（本机首选）
+          - k61v1_64_bsp_debug_defconfig
+          - k61v1_32_bsp_defconfig      # 32 位对照组
+      with_dtbo:
+        description: "是否顺带编 dtbo/dtb"
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths:
+      - "patches/**"
+      - ".github/workflows/kernel-build.yml"
+
+env:
+  # 4.9 alps 树，自带 arch/arm64/configs/k61v1_64_bsp_defconfig
+  KERNEL_REPO: https://github.com/mediatek-android-development/android_kernel_mediatek_mt6761-62-4.9
+  KERNEL_REF: master
+  # 4.19 的备选（Duoqin F21 Pro，换 repo/ref 即可）
+  # KERNEL_REPO: https://github.com/JamiKettunen/android_kernel_duoqin_mt6761
+  # KERNEL_REF: lineage-20
+  TOOLCHAIN_REPO: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 180
+    steps:
+      - name: 腾磁盘（内核源码 + out 目录需要 ~20 GB）
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          swap-storage: true
+
+      - uses: actions/checkout@v4
+
+      - name: 装依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential bc bison flex libssl-dev libelf-dev \
+                                 zip unzip python3 cpio rsync
+
+      - name: 缓存内核源码（首次 ~6 分钟，之后秒级）
+        id: cache-kernel
+        uses: actions/cache@v4
+        with:
+          path: kernel
+          key: kernel-${{ env.KERNEL_REF }}-${{ hashFiles('.github/workflows/kernel-build.yml') }}
+
+      - name: 拉内核源码
+        if: steps.cache-kernel.outputs.cache-hit != 'true'
+        run: git clone --depth 1 --branch "$KERNEL_REF" "$KERNEL_REPO" kernel
+
+      - name: 拉 AOSP gcc 4.9 工具链
+        run: |
+          git clone --depth 1 "$TOOLCHAIN_REPO" tc
+          test -x tc/bin/aarch64-linux-android-gcc || { echo "工具链缺少 aarch64-linux-android-gcc"; ls tc/bin | head; exit 1; }
+          echo "CROSS_COMPILE=$PWD/tc/bin/aarch64-linux-android-" >> "$GITHUB_ENV"
+          echo "PATH=$PWD/tc/bin:$PATH" >> "$GITHUB_ENV"
+
+      - name: 应用本地补丁（patches/*.patch，可选）
+        run: |
+          shopt -s nullglob
+          for p in patches/*.patch; do
+            echo "== apply $p"
+            git -C kernel apply --3way "$PWD/$p" || { echo "补丁失败: $p"; exit 1; }
+          done
+
+      - name: 配置
+        run: make -C kernel O=out ARCH=arm64 "${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}"
+
+      - name: 编译 Image
+        run: make -C kernel O=out ARCH=arm64 -j"$(nproc)" Image
+
+      - name: 编译 DTB/DTBO（可选）
+        if: ${{ github.event.inputs.with_dtbo != 'false' }}
+        run: make -C kernel O=out ARCH=arm64 -j"$(nproc)" dtbs
+
+      - name: 校验产物位宽（ARM64 Image 头部 magic 必须是 ARM\x64）
+        run: |
+          IMG=kernel/out/arch/arm64/boot/Image
+          ls -l "$IMG"
+          python3 - "$IMG" <<'PY'
+          import sys
+          d = open(sys.argv[1], 'rb').read(0x40)
+          magic = d[0x38:0x3c]
+          print("image magic @0x38:", magic)
+          if magic != b'ARM\x64':
+              sys.exit("不是合法的 ARM64 Image，别拿去刷")
+          code0 = int.from_bytes(d[0:4], 'little')
+          print("branch insn:", hex(code0))
+          PY
+
+      - name: 重打包 boot.img（需要仓库里放 stock/boot.img）
+        if: ${{ hashFiles('stock/boot.img') != '' }}
+        run: |
+          python3 tools/repack_boot.py \
+            --src stock/boot.img \
+            --kernel kernel/out/arch/arm64/boot/Image \
+            --kernel-addr 0x40080000 \
+            --out boot64.img
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mt6761-${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}
+          path: |
+            kernel/out/arch/arm64/boot/Image
+            kernel/out/arch/arm64/boot/dts/mediatek/*.dtb
+            boot64.img
+          if-no-files-found: warn
+          retention-days: 14

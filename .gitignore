@@ -1,0 +1,26 @@
+# 大块镜像与导出物（不进仓库，避免撑爆 GitHub 体积限制）
+*.bin
+*.img
+*.sparse
+expdb_log.txt
+super_head.bin
+
+# 专有二进制：公开仓库不要放（MTK/vendor 版权 + 体积）
+stock/
+backup/
+readback/
+
+# 构建产物
+out/
+*.o
+*.dtb.tmp
+
+# Python
+__pycache__/
+*.pyc
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
