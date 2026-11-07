@@ -100,7 +100,10 @@ jobs:
           KCFLAGS: "-fcommon -Wno-error -Wno-error=format -Wno-error=format-truncation -Wno-error=maybe-uninitialized -Wno-error=array-bounds -Wno-error=stringop-overflow"
         run: |
           set -o pipefail
+          # TEXT_OFFSET=0x8000：迁就 LK 固定装载地址 0x40008000
+          # （base 0x40000000 是 2MiB 对齐，text_offset 0x8000，满足 arm64 规则）
           make -C kernel O=out ARCH=arm64 -j"$(nproc)" \
+            TEXT_OFFSET=0x00008000 \
             HOSTCFLAGS="$HOSTCFLAGS" KCFLAGS="$KCFLAGS" \
             Image Image.gz-dtb 2>&1 | tee -a /tmp/ci/build.log
 
