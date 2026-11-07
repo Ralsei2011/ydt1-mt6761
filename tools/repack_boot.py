@@ -45,6 +45,7 @@ def main():
     ap.add_argument("--kernel", help="新内核（Image 或 zImage）；不给则只改 cmdline")
     ap.add_argument("--kernel-addr", default=None, help="如 0x40080000")
     ap.add_argument("--bootopt", default=None, help="替换 cmdline 里的 bootopt=... 值")
+    ap.add_argument("--no-dtb", action="store_true", help="不继承源镜像的 DTB")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
 
@@ -84,6 +85,29 @@ def main():
                  0, h["second_addr"], h["tags_addr"], page, h["header_version"],
                  h["os_version"], h["name"], cmd_b, h["id"], h["extra"])
     out = hdr + b"\0" * (page - len(hdr)) + kernel + b"\0" * (align(len(kernel), page) - len(kernel)) + ramdisk
+
+    # —— 保留源镜像的 DTB —— 
+    # MTK 的 boot.img 布局是 header + kernel + ramdisk + DTB，
+    # 丢了 DTB，arm64 内核拿不到设备树，会在最早一步直接死（无任何日志）。
+    if not a.no_dtb:
+        src_tail = align(h["kernel_size"], page) + align(h["ramdisk_size"], page)
+        dtb_off = None
+        for cand in range(page + src_tail, min(page + src_tail + 0x10000, len(raw)), 4):
+            if raw[cand:cand + 4] == b"\xd0\x0d\xfe\xed":
+                dtb_off = cand
+                break
+        if dtb_off:
+            total = struct.unpack(">I", raw[dtb_off + 4:dtb_off + 8])[0]
+            if 0 < total <= len(raw) - dtb_off:
+                dtb = raw[dtb_off:dtb_off + total]
+                out += b"\0" * (align(len(out), page) - len(out))
+                out += dtb
+                print(f"[+] 保留 DTB：源偏移 0x{dtb_off:X}，{total} 字节")
+            else:
+                print("[!] DTB 头长度异常，跳过")
+        else:
+            print("[!] 源镜像 ramdisk 之后没有找到 FDT —— 这个镜像可能本来就不带 DTB")
+
     out += b"\0" * (align(len(out), page) - len(out))
 
     open(a.out, "wb").write(out)

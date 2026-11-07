@@ -128,6 +128,37 @@ booting linux @ 0x40008000, ramdisk @ 0x51b00000 (943796)
 
 ---
 
+### 0.8 当晚最终进展与卡点（2026-11-07 22:15）
+
+**已经拿下的（都是实打实的成果）**
+
+1. **4.19 64 位内核编译成功**（盒子，`TEXT_OFFSET=0x00008000`）：
+   `Image` 30,558,216 B，`text_offset=0x8000`，`magic=ARM\x64`，
+   `_text=0xffffff8008008000` —— 链接地址与装载地址一致，参数全对。
+2. **证明 `bootopt` 是位宽开关**（§0.7 的对照实验）。
+3. **发现 LK 固定把内核装在 `0x40008000`**，与 boot.img 头的 `kernel_addr` 无关。
+4. **发现并修复打包脚本丢 DTB 的 bug**（见下）。
+
+**新发现的关键 bug**：MTK 的 boot.img 布局是 `header + kernel + ramdisk + DTB`，
+我最初的 `repack_boot.py` 只搬了 kernel 和 ramdisk，**把 DTB 整段丢了**。
+`current_boot.img` 里 FDT 在 `0x93F040`（85,426 字节，正好是本机 `base.dtb` 的大小），
+而第一版 `boot64c.img` 里 FDT 出现 **0 次**。已修：脚本现在会继承源镜像的 DTB。
+（`boot64d.img` 已带上，FDT @ `0x1E0C000`。）
+
+**仍然失败**：带 DTB 刷入后依然黑屏、USB 不枚举、约 100 秒回落 fastboot，
+且 `console-ramoops` 里**没有任何 4.19 痕迹** → 内核死在 console/pstore 初始化之前。
+
+**结论：卡在"看不见"上，而不是"参数不对"。**
+现在所有能用静态手段确认的参数（装载地址、text_offset、bootopt、DTB、magic）都已对齐，
+剩下的死因在 head.S 到 console 初始化之间，没有日志就只能猜。
+
+**要继续只有两条路**：
+1. **接 UART**（`console=ttyS0,921600n1` 已在 cmdline 里）——唯一能看见早期日志的办法
+2. 用本内核自己的 DT（`make dtbs` 出的 `k61v1_64_bsp.dtb`）替换那个 4.9 时代的 DT 再试一次
+   —— 成本低（增量编译几分钟），但大概率还是看不见结果
+
+---
+
 ## 1. 方案 B｜整机 64 位（本质：移植同芯片 ROM）
 
 ### 1.1 到底要动哪些分区
