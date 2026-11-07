@@ -116,7 +116,7 @@
 | `D:/ydt1_work/scan_bits.py` | 扫镜像里 AArch32/AArch64 特征（判断任意 lk/内核位宽，可复用） |
 | `D:/ydt1_work/strs.py` / `fdt_parse.py` | 引导镜像字符串提取 / DTB 解析（自写，无依赖） |
 | `D:/ydt1_work/base.dtb` | 从 boot.img 尾部抽出的**本机完整板级 DTB（85 KB）**，64 位移植要用 |
-| 编译盒子 `root@192.168.1.12:58743` | 上 `/root/build_mt6761.sh`(4.9) `/root/build_duoqin.sh`(4.19)，源码在 `/mnt/sdcard/work/src/` |
+| 编译盒子（SSH 别名 `ydt1-box`，连接信息只存本地 `~/.ssh/config`） | 上 `/root/build_mt6761.sh`(4.9) `/root/build_duoqin.sh`(4.19)，源码在 `/mnt/sdcard/work/src/` |
 
 ---
 
