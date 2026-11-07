@@ -38,7 +38,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write   # 失败时要把日志推到 ci-logs 分支
 
 jobs:
   build:
@@ -93,7 +93,25 @@ jobs:
         run: make -C kernel O=out ARCH=arm64 "${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}"
 
       - name: 编译 Image
-        run: make -C kernel O=out ARCH=arm64 -j"$(nproc)" Image
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/ci
+          make -C kernel O=out ARCH=arm64 -j"$(nproc)" Image 2>&1 | tee /tmp/ci/build.log
+
+      - name: 失败时把日志推到 ci-logs 分支（便于远程诊断）
+        if: failure()
+        run: |
+          mkdir -p /tmp/ci
+          LOG=/tmp/ci/build.log
+          [ -f "$LOG" ] || LOG=/tmp/ci/empty.log
+          [ -f "$LOG" ] || echo "(没有 build.log)" > "$LOG"
+          mkdir -p ci-fail && { echo "run: $GITHUB_RUN_ID  commit: $GITHUB_SHA"; echo "defconfig: ${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}"; echo "---------- 最后 200 行 ----------"; tail -200 "$LOG"; } > ci-fail/last.log
+          git config user.name  "ci-bot"
+          git config user.email "ci-bot@localhost"
+          git checkout -B ci-logs
+          git add -f ci-fail/last.log
+          git commit -m "ci failure log for run $GITHUB_RUN_ID" || true
+          git push -f origin ci-logs
 
       - name: 编译 DTB/DTBO（可选）
         if: ${{ github.event.inputs.with_dtbo != 'false' }}
