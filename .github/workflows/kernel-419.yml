@@ -97,7 +97,7 @@ jobs:
           # 直接照抄 /root/build_duoqin.sh 的成功配方：
           #   KCFLAGS="-fcommon -Wno-error" + HOSTCFLAGS 带 -fcommon + 目标 Image.gz-dtb
           HOSTCFLAGS: "-Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89 -fcommon"
-          KCFLAGS: "-fcommon -Wno-error"
+          KCFLAGS: "-fcommon -Wno-error -Wno-error=format -Wno-error=format-truncation -Wno-error=maybe-uninitialized -Wno-error=array-bounds -Wno-error=stringop-overflow"
         run: |
           set -o pipefail
           make -C kernel O=out ARCH=arm64 -j"$(nproc)" \
