@@ -81,10 +81,16 @@ def main():
         print(f"[*] cmdline bootopt -> {a.bootopt}")
     cmd_b = cmd.encode("latin1")
 
-    hdr = P.pack(b"ANDROID!", len(kernel), kaddr, len(ramdisk), h["ramdisk_addr"],
-                 0, h["second_addr"], h["tags_addr"], page, h["header_version"],
-                 h["os_version"], h["name"], cmd_b, h["id"], h["extra"])
-    out = hdr + b"\0" * (page - len(hdr)) + kernel + b"\0" * (align(len(kernel), page) - len(kernel)) + ramdisk
+    # —— 复制原厂 header 页，只改变化字段 —— 
+    # 早期版本是"按字段重建 header"，结果把原厂 header 里 0x660 之后的
+    # MTK 私有扩展区清零了（实测差 58KB，LK 直接不认这个镜像）。
+    hdr = bytearray(raw[:page])
+    struct.pack_into("<I", hdr, 8, len(kernel))        # kernel_size
+    struct.pack_into("<I", hdr, 12, kaddr)             # kernel_addr
+    struct.pack_into("<I", hdr, 16, len(ramdisk))      # ramdisk_size
+    hdr[64:64 + len(cmd_b)] = cmd_b                    # cmdline
+    hdr[64 + len(cmd_b)] = 0
+    out = bytes(hdr) + kernel + b"\0" * (align(len(kernel), page) - len(kernel)) + ramdisk
 
     # —— 保留源镜像的 DTB —— 
     # MTK 的 boot.img 布局是 header + kernel + ramdisk + DTB，
@@ -99,10 +105,15 @@ def main():
         if dtb_off:
             total = struct.unpack(">I", raw[dtb_off + 4:dtb_off + 8])[0]
             if 0 < total <= len(raw) - dtb_off:
-                dtb = raw[dtb_off:dtb_off + total]
+                # MTK 的 DTB 前面还有 64 字节私有头（magic 0xD7B7AB1E），必须一起保留
+                start = dtb_off
+                if raw[dtb_off - 64:dtb_off - 60] == b"\xd7\xb7\xab\x1e":
+                    start = dtb_off - 64
+                    print("[+] 检测到 MTK DTB 私有头（0xD7B7AB1E），一并保留")
+                dtb = raw[start:dtb_off + total]
                 out += b"\0" * (align(len(out), page) - len(out))
                 out += dtb
-                print(f"[+] 保留 DTB：源偏移 0x{dtb_off:X}，{total} 字节")
+                print(f"[+] 保留 DTB：源偏移 0x{dtb_off:X}，{total} 字节（含头共 {len(dtb)}）")
             else:
                 print("[!] DTB 头长度异常，跳过")
         else:

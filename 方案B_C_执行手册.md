@@ -159,6 +159,83 @@ booting linux @ 0x40008000, ramdisk @ 0x51b00000 (943796)
 
 ---
 
+### 0.9 【重要】打包链的三个 bug 与最终结论（2026-11-07 22:55）
+
+**今晚前两个小时的实验全部作废，因为打包脚本从根上是错的。** 修完后才得到可靠结论。
+
+#### 三个 bug（都已修）
+
+1. **header 私有区被清零**：旧脚本"按字段重建 header"，把原厂 header 里 `0x660`
+   之后的 MTK 私有扩展区写成 0（实测差 58 KB）。
+   → 改为**整页复制原厂 header，只 patch kernel_size / kernel_addr / ramdisk_size / cmdline**。
+2. **MTK DTB 私有头被丢弃**：DTB 前面有 64 字节魔法 `0xD7B7AB1E` 的头，旧脚本只从
+   FDT 魔数 `0xD00DFEED` 开始拷。
+   → 改为检测并连同私有头一起保留。
+3. **AVB 结构被覆盖**：boot 分区布局是
+   `[镜像][vbmeta 1472B][填充][AVB footer 64B]`。刷一个比原镜像大的镜像，
+   会把 vbmeta 覆盖成内核数据 → LK 解析失败 → 停在 logo。
+   → 新增 `tools/avb_wrap.py`：把新镜像 + vbmeta + 新 footer 重排成完整 32 MiB。
+
+**验证**：修完后用原厂输入重打包，输出与原厂镜像**逐字节完全一致**（9,781,248 B）。✅
+
+#### 对照实验矩阵（今晚最硬的证据）
+
+| 镜像 | 内容 | 大小 | 结果 |
+|---|---|---|---|
+| `current_boot.img` | 原厂 32 位 | 32 MiB | ✅ 启动 80 s |
+| `boot_mod1.img` | 原厂只改 **1 字节** | 32 MiB | ✅ 启动 80 s → **AVB 不拦改动镜像**（BL 已解锁，用户判断正确） |
+| `boot_control3.img` | 重打包，内容逐字节相同 | 9.78 MB | ❌（vbmeta 区被之前大镜像覆盖，非打包问题） |
+| `boot_big32w.img` | 原厂内核 + 20 MB 零填充 + vbmeta 重排 | 30 MiB | ✅ 启动 80 s → **镜像大小不是问题** |
+| `boot64hw.img` | 4.19 内核 + 屏幕探针（死循环） | 30 MiB | 🟡 **设备 100 s 不回落 fastboot** |
+
+#### 决定性结论
+
+> **64 位内核确实被 CPU 执行了。**
+> 最后一个镜像里，探针把死循环写在 `stext` 的第一条指令之后；
+> 设备不再像以前那样 40 秒回落 fastboot —— 说明 CPU 卡在那个死循环里。
+> 也就是说：`bootopt=64S1` 生效、ATF 以 AArch64 进入、装载地址与
+> `TEXT_OFFSET=0x8000` 全部正确、DTB 也被接受。
+
+**所以问题不在"能不能进内核"，而在"进了之后死在哪"。**
+之前看到的"黑屏 + 40 秒回落"其实是内核跑起来后崩溃、LK 失败计数超限的结果。
+
+#### 明天从这里继续（二分定位）
+
+探针已内置在 `arch/arm64/kernel/head.S`，宏名 `FB_PROBE`，直接往
+framebuffer（`0x7f220000`，stride 2944，三缓冲共 3840 行）刷整屏颜色：
+
+| 探针位置 | 颜色 | 含义 |
+|---|---|---|
+| `stext` 入口 | 红 `0x00FF0000` | 已进入内核 |
+| `bl el2_setup` 之后 | 绿 `0x0000FF00` | 已降到 EL1 |
+| `bl __create_page_tables` 之后 | 蓝 `0x000000FF` | 页表已建好 |
+
+当前 `HANG_AFTER_PROBE1` 让程序停在第一个探针（屏幕应为红色）。
+**下一步**：把 `b .` 依次后移到探针 2、探针 3，用屏幕颜色二分。
+过了探针 3 之后就是开 MMU 和 C 代码 —— 那时可以改用 C 层探针
+（内核态写 `__va(0x7f220000)`，线性映射已建立）。
+
+#### 编译与打包的完整命令（明天直接复用）
+
+```bash
+# 盒子编译（增量，改 head.S 后约 2 分钟）
+ssh ydt1-box 'cd /mnt/sdcard/work/src/duoqin/android_kernel_duoqin_mt6761-android-11.0 && \
+  export ARCH=arm64 CROSS_COMPILE=/opt/gcc10/bin/aarch64-linux-gnu- \
+         KCFLAGS="-fcommon -Wno-error" \
+         HOSTCFLAGS="-Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89 -fcommon" && \
+  make O=/mnt/sdcard/work/build_k64_to8000 ARCH=arm64 TEXT_OFFSET=0x00008000 \
+       KCFLAGS="$KCFLAGS" HOSTCFLAGS="$HOSTCFLAGS" Image -j4'
+
+# 下载 → 打包 → AVB 重排 → 刷
+scp ydt1-box:/mnt/sdcard/work/build_k64_to8000/arch/arm64/boot/Image box_out/Image
+python tools/repack_boot.py --src current_boot.img --kernel box_out/Image \
+       --kernel-addr 0x40008000 --bootopt 64S3,64S1,64S1 --out boot64.img
+python tools/avb_wrap.py --img boot64.img --src current_boot.img --out boot64_final.img
+fastboot flash boot boot64_final.img
+```
+
+---
+
 ## 1. 方案 B｜整机 64 位（本质：移植同芯片 ROM）
 
 ### 1.1 到底要动哪些分区
