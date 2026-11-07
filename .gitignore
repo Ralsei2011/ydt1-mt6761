@@ -24,3 +24,10 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# 编译盒子拉下来的产物（不进仓库）
+box_out/
+Image
+Image.gz*
+System.map
+*.log

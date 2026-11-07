@@ -92,10 +92,17 @@ jobs:
           make -C kernel O=out ARCH=arm64 \
             "${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}" 2>&1 | tee /tmp/ci/build.log
 
-      - name: 编译 Image
+      - name: 编译 Image（用盒子上验证过的参数）
+        env:
+          # 直接照抄 /root/build_duoqin.sh 的成功配方：
+          #   KCFLAGS="-fcommon -Wno-error" + HOSTCFLAGS 带 -fcommon + 目标 Image.gz-dtb
+          HOSTCFLAGS: "-Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89 -fcommon"
+          KCFLAGS: "-fcommon -Wno-error"
         run: |
           set -o pipefail
-          make -C kernel O=out ARCH=arm64 -j"$(nproc)" Image 2>&1 | tee -a /tmp/ci/build.log
+          make -C kernel O=out ARCH=arm64 -j"$(nproc)" \
+            HOSTCFLAGS="$HOSTCFLAGS" KCFLAGS="$KCFLAGS" \
+            Image Image.gz-dtb 2>&1 | tee -a /tmp/ci/build.log
 
       - name: 校验产物位宽（必须是 ARM\x64）
         run: |
@@ -114,7 +121,7 @@ jobs:
         run: |
           mkdir -p /tmp/ci ci-fail
           [ -f /tmp/ci/build.log ] || echo "(无日志)" > /tmp/ci/build.log
-          { echo "run: $GITHUB_RUN_ID  toolchain: ${{ github.event.inputs.toolchain || 'gcc' }}"; echo "----- 最后 250 行 -----"; tail -250 /tmp/ci/build.log; } > ci-fail/last-419.log
+          { echo "run: $GITHUB_RUN_ID  toolchain: ${{ github.event.inputs.toolchain || 'gcc' }}"; echo "----- 错误上下文 -----"; grep -n -B5 -A20 -m3 "Error [0-9]\|error:" /tmp/ci/build.log || true; echo "----- 最后 3000 行 -----"; tail -3000 /tmp/ci/build.log; } > ci-fail/last-419.log
           git config user.name "ci-bot-419"
           git config user.email "ci-bot@localhost"
           git checkout -B ci-logs-419
