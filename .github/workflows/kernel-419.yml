@@ -80,6 +80,12 @@ jobs:
           git clone --depth 1 --branch "$KERNEL_REF" "$KERNEL_REPO" kernel
           du -sh kernel
 
+      - name: 打印环境（便于诊断失败原因）
+        run: |
+          nproc; free -h | head -2; df -h / | tail -1
+          (aarch64-linux-gnu-gcc --version || clang-12 --version) | head -2
+          echo "CC=${CC:-默认gcc}  CROSS_COMPILE=${CROSS_COMPILE}  CLANG_TRIPLE=${CLANG_TRIPLE:-无}"
+
       - name: 配置
         run: |
           mkdir -p /tmp/ci
