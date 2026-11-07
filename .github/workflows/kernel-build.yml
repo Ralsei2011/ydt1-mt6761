@@ -10,9 +10,8 @@ on:
         type: choice
         default: k61v1_64_bsp_defconfig
         options:
+          # 已通过 GitHub API 确认存在；32 位对照请用 k61v1_32_bsp_1g_defconfig
           - k61v1_64_bsp_defconfig      # 64 位（本机首选）
-          - k61v1_64_bsp_debug_defconfig
-          - k61v1_32_bsp_defconfig      # 32 位对照组
       with_dtbo:
         description: "是否顺带编 dtbo/dtb"
         type: boolean
@@ -31,6 +30,15 @@ env:
   # KERNEL_REPO: https://github.com/JamiKettunen/android_kernel_duoqin_mt6761
   # KERNEL_REF: lineage-20
   TOOLCHAIN_REPO: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9
+  TOOLCHAIN_REF: lineage-19.1   # 该仓库默认分支，已核对
+
+# 同一分支上只保留最新一次运行，避免排队烧时间
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -68,7 +76,7 @@ jobs:
 
       - name: 拉 AOSP gcc 4.9 工具链
         run: |
-          git clone --depth 1 "$TOOLCHAIN_REPO" tc
+          git clone --depth 1 --branch "$TOOLCHAIN_REF" "$TOOLCHAIN_REPO" tc
           test -x tc/bin/aarch64-linux-android-gcc || { echo "工具链缺少 aarch64-linux-android-gcc"; ls tc/bin | head; exit 1; }
           echo "CROSS_COMPILE=$PWD/tc/bin/aarch64-linux-android-" >> "$GITHUB_ENV"
           echo "PATH=$PWD/tc/bin:$PATH" >> "$GITHUB_ENV"
