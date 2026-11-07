@@ -63,12 +63,11 @@ jobs:
             echo "HOSTCC=clang-12" >> "$GITHUB_ENV"
             echo "CLANG_TRIPLE=aarch64-linux-gnu-" >> "$GITHUB_ENV"
           else
-            # 优先用 gcc-10：和盒子上那套一致，避开 gcc11 的 always_inline/format 等兼容问题
-            sudo apt-get install -y gcc-aarch64-linux-gnu
-            sudo apt-get install -y gcc-10-aarch64-linux-gnu || echo "gcc-10 不可用，回落默认 gcc"
+            # 必须用 gcc-10：和盒子上验证过的版本一致，装不上就直接失败，不静默回落
+            sudo apt-get install -y gcc-aarch64-linux-gnu gcc-10-aarch64-linux-gnu
+            aarch64-linux-gnu-gcc-10 --version | head -1
           fi
           echo "CROSS_COMPILE=aarch64-linux-gnu-" >> "$GITHUB_ENV"
-          (aarch64-linux-gnu-gcc-10 --version || aarch64-linux-gnu-gcc --version) | head -1
 
       - name: 缓存内核源码（1.76 GB 仓库，首次较慢）
         id: cache-kernel
@@ -95,6 +94,14 @@ jobs:
           make -C kernel O=out ARCH=arm64 \
             "${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}" 2>&1 | tee /tmp/ci/build.log
 
+      - name: 修补 uclamp 声明（新版 gcc 在别的编译单元要求内联却拿不到函数体）
+        run: |
+          F=kernel/kernel/sched/sched.h
+          grep -n "inline void uclamp_se_set" "$F"
+          sed -i 's/^inline void uclamp_se_set(/void uclamp_se_set(/' "$F"
+          echo "--- 修补后 ---"
+          grep -n "uclamp_se_set(struct uclamp_se" "$F"
+
       - name: 编译 Image（用盒子上验证过的参数）
         env:
           # 直接照抄 /root/build_duoqin.sh 的成功配方：
@@ -109,7 +116,7 @@ jobs:
           if command -v aarch64-linux-gnu-gcc-10 >/dev/null 2>&1; then
             EXTRA="CC=aarch64-linux-gnu-gcc-10"
           fi
-          echo "使用: ${EXTRA:-默认 gcc}"
+          { echo "compiler: ${EXTRA:-默认 gcc}"; ${EXTRA#CC=} --version 2>/dev/null | head -1; echo "TEXT_OFFSET=0x8000"; } | tee -a /tmp/ci/build.log
           make -C kernel O=out ARCH=arm64 -j"$(nproc)" \
             $EXTRA TEXT_OFFSET=0x00008000 \
             HOSTCFLAGS="$HOSTCFLAGS" KCFLAGS="$KCFLAGS" \
