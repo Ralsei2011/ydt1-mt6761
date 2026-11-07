@@ -94,13 +94,21 @@ jobs:
           make -C kernel O=out ARCH=arm64 \
             "${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}" 2>&1 | tee /tmp/ci/build.log
 
-      - name: 修补 uclamp 声明（新版 gcc 在别的编译单元要求内联却拿不到函数体）
+      - name: 修补头文件里的裸 inline 声明（新版 gcc 会因取不到函数体而报错）
         run: |
-          F=kernel/kernel/sched/sched.h
-          grep -n "inline void uclamp_se_set" "$F"
-          sed -i 's/^inline void uclamp_se_set(/void uclamp_se_set(/' "$F"
-          echo "--- 修补后 ---"
-          grep -n "uclamp_se_set(struct uclamp_se" "$F"
+          set -e
+          # 这类写法在 Android 4.19 里成片存在：头文件只有 `inline xxx(...)` 声明，
+          # 定义在 .c 里是 __always_inline。别的编译单元调用时 gcc 无法内联 → 硬报错。
+          # 做法：把声明前那个 inline 去掉，调用点就退化成普通函数调用。
+          for f in kernel/kernel/sched/sched.h \
+                   kernel/include/linux/keyslot-manager.h \
+                   kernel/include/linux/blk-crypto.h; do
+            echo "== $f"
+            grep -n "^inline " "$f" || echo "   (没有裸 inline)"
+            sed -i -E 's/^inline (void|int|bool|unsigned long|unsigned int) /\1 /' "$f"
+            echo "--- 处理完 ---"
+            grep -n "^inline " "$f" || echo "   (已清空)"
+          done
 
       - name: 编译 Image（用盒子上验证过的参数）
         env:
