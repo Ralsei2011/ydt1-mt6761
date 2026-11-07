@@ -1,0 +1,3043 @@
+run: 42378905581  toolchain: gcc
+----- 错误上下文 -----
+4191-  CC      drivers/opp/cpu.o
+4192-  CC      drivers/opp/of.o
+4193-  CC      drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.o
+4194-  CC      drivers/of/of_net.o
+4195-../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c: In function ‘check_cm_mgr_status_internal’:
+4196:../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c:943:3: error: ‘memset’ used with length equal to number of elements without multiplication by element size [-Werror=memset-elt-size]
+4197-  943 |   memset(count_ack, 0, ARRAY_SIZE(count_ack));
+4198-      |   ^~~~~~
+4199:../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c:958:3: error: ‘memset’ used with length equal to number of elements without multiplication by element size [-Werror=memset-elt-size]
+4200-  958 |   memset(max_load, 0, ARRAY_SIZE(count_ack));
+4201-      |   ^~~~~~
+4202-In file included from ../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c:41:
+4203-At top level:
+4204-../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_data_mt6761.h:488:12: warning: ‘cm_get_version’ defined but not used [-Wunused-variable]
+4205-  488 | static int cm_get_version = -1;
+4206-      |            ^~~~~~~~~~~~~~
+4207-  AR      drivers/opp/built-in.a
+4208-  CC      net/compat.o
+4209-cc1: all warnings being treated as errors
+4210:make[5]: *** [../scripts/Makefile.build:334: drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.o] Error 1
+4211-make[4]: *** [../scripts/Makefile.build:637: drivers/misc/mediatek/cm_mgr] Error 2
+4212-make[3]: *** [../scripts/Makefile.build:637: drivers/misc/mediatek] Error 2
+4213-make[2]: *** [../scripts/Makefile.build:637: drivers/misc] Error 2
+4214-make[2]: *** Waiting for unfinished jobs....
+4215-  CC      net/wireless/mlme.o
+4216-  CC      drivers/of/of_mdio.o
+4217-  CC      drivers/of/of_reserved_mem.o
+4218-  AR      drivers/of/built-in.a
+4219-make[1]: *** [/home/runner/work/ydt1-mt6761/ydt1-mt6761/kernel/Makefile:1161: drivers] Error 2
+4220-make[1]: *** Waiting for unfinished jobs....
+4221-  CC      net/sysctl_net.o
+4222-  CC      net/wireless/ibss.o
+4223-  CC      net/wireless/sme.o
+4224-  CC      net/wireless/chan.o
+4225-  CC      net/wireless/ethtool.o
+4226-  CC      net/wireless/mesh.o
+4227-  CC      net/wireless/ap.o
+4228-  CC      net/wireless/trace.o
+4229-  CC      net/wireless/ocb.o
+4230-  CC      net/wireless/of.o
+----- 最后 3000 行 -----
+  CC      kernel/auditfilter.o
+  CC      drivers/base/power/clock_ops.o
+  CC      sound/core/hrtimer.o
+  CC      sound/core/pcm.o
+  AR      drivers/base/power/built-in.a
+  CC      drivers/base/regmap/regmap.o
+  CC      kernel/auditsc.o
+  CC      fs/inode.o
+  CC      sound/core/pcm_native.o
+  CC      kernel/audit_watch.o
+  CC      drivers/base/regmap/regcache.o
+  CC      fs/attr.o
+  CC      kernel/audit_fsnotify.o
+  CC      fs/bad_inode.o
+  CC      drivers/base/regmap/regcache-rbtree.o
+  CC      kernel/audit_tree.o
+  CC      drivers/base/regmap/regcache-flat.o
+  CC      fs/file.o
+  CC      drivers/base/regmap/regmap-i2c.o
+  CC      kernel/kprobes.o
+  CC      drivers/base/regmap/regmap-spi.o
+  CC      sound/core/pcm_lib.o
+  CC      fs/filesystems.o
+  CC      drivers/base/regmap/regmap-mmio.o
+  CC      kernel/seccomp.o
+  CC      fs/namespace.o
+  CC      drivers/base/regmap/regmap-irq.o
+  CC      sound/core/pcm_misc.o
+  CC      kernel/utsname_sysctl.o
+  CC      kernel/taskstats.o
+  AR      drivers/base/regmap/built-in.a
+  AR      drivers/base/test/built-in.a
+  CC      drivers/base/component.o
+  CC      sound/core/pcm_memory.o
+  CC      kernel/tsacct.o
+  CC      drivers/base/core.o
+  CC      kernel/tracepoint.o
+  CC      sound/core/memalloc.o
+  CC      fs/seq_file.o
+  CC      kernel/elfcore.o
+  CC      sound/core/pcm_timer.o
+  CC      kernel/irq_work.o
+  CC      sound/core/pcm_drm_eld.o
+  CC      fs/xattr.o
+  CC      kernel/cpu_pm.o
+  CC      sound/core/pcm_dmaengine.o
+  CC      kernel/iomem.o
+  CC      drivers/base/bus.o
+  UPD     kernel/config_data.h
+  CC      kernel/configs.o
+  CC      sound/core/rawmidi.o
+  CC      fs/libfs.o
+  AR      kernel/built-in.a
+  AR      sound/drivers/mpu401/built-in.a
+  AR      sound/drivers/opl3/built-in.a
+  AR      sound/drivers/opl4/built-in.a
+  AR      sound/drivers/pcsp/built-in.a
+  AR      sound/drivers/vx/built-in.a
+  AR      sound/drivers/built-in.a
+  CC      drivers/block/zram/zcomp.o
+  CC      drivers/base/dd.o
+  CC      drivers/block/zram/zram_drv.o
+  CC      fs/fs-writeback.o
+  CC      drivers/base/syscore.o
+  AR      drivers/block/zram/built-in.a
+  CC      drivers/block/brd.o
+  CC      sound/core/compress_offload.o
+  CC      drivers/block/loop.o
+  CC      drivers/base/driver.o
+  CC      drivers/base/class.o
+  AR      sound/core/built-in.a
+  AR      sound/firewire/built-in.a
+  AR      sound/hda/built-in.a
+  AR      sound/i2c/other/built-in.a
+  AR      sound/i2c/built-in.a
+  AR      sound/isa/ad1816a/built-in.a
+  AR      sound/isa/ad1848/built-in.a
+  AR      sound/isa/cs423x/built-in.a
+  AR      sound/isa/es1688/built-in.a
+  AR      sound/isa/galaxy/built-in.a
+  AR      sound/isa/gus/built-in.a
+  AR      sound/isa/msnd/built-in.a
+  AR      sound/isa/opti9xx/built-in.a
+  AR      sound/isa/sb/built-in.a
+  AR      sound/isa/wavefront/built-in.a
+  AR      sound/isa/wss/built-in.a
+  AR      sound/isa/built-in.a
+  AR      sound/mips/built-in.a
+  AR      sound/parisc/built-in.a
+  AR      sound/pci/ac97/built-in.a
+  AR      sound/pci/ali5451/built-in.a
+  AR      sound/pci/asihpi/built-in.a
+  AR      sound/pci/au88x0/built-in.a
+  AR      sound/pci/aw2/built-in.a
+  AR      sound/pci/ca0106/built-in.a
+  AR      sound/pci/cs46xx/built-in.a
+  AR      sound/pci/cs5535audio/built-in.a
+  AR      sound/pci/ctxfi/built-in.a
+  AR      sound/pci/echoaudio/built-in.a
+  AR      sound/pci/emu10k1/built-in.a
+  AR      sound/pci/hda/built-in.a
+  AR      sound/pci/ice1712/built-in.a
+  AR      sound/pci/korg1212/built-in.a
+  AR      sound/pci/lola/built-in.a
+  AR      sound/pci/lx6464es/built-in.a
+  AR      sound/pci/mixart/built-in.a
+  AR      sound/pci/nm256/built-in.a
+  AR      sound/pci/oxygen/built-in.a
+  AR      sound/pci/pcxhr/built-in.a
+  AR      sound/pci/riptide/built-in.a
+  AR      sound/pci/rme9652/built-in.a
+  AR      sound/pci/trident/built-in.a
+  AR      sound/pci/vx222/built-in.a
+  AR      sound/pci/ymfpci/built-in.a
+  AR      sound/pci/built-in.a
+  AR      sound/pcmcia/pdaudiocf/built-in.a
+  AR      sound/pcmcia/vx/built-in.a
+  AR      sound/pcmcia/built-in.a
+  AR      sound/ppc/built-in.a
+  AR      sound/sh/built-in.a
+  AR      sound/soc/adi/built-in.a
+  AR      sound/soc/amd/built-in.a
+  AR      sound/soc/atmel/built-in.a
+  AR      sound/soc/au1x/built-in.a
+  AR      sound/soc/bcm/built-in.a
+  AR      sound/soc/cirrus/built-in.a
+  CC      sound/soc/codecs/rt5509.o
+  CC      drivers/base/platform.o
+  CC      drivers/block/virtio_blk.o
+  CC      fs/pnode.o
+  CC      drivers/base/cpu.o
+  CC      sound/soc/codecs/rt5509-regmap.o
+  AR      drivers/block/built-in.a
+  AR      drivers/bluetooth/built-in.a
+  AR      firmware/built-in.a
+  AR      sound/sparc/built-in.a
+  AR      sound/soc/davinci/built-in.a
+  CC      fs/splice.o
+  CC      drivers/base/firmware.o
+  CC      sound/soc/codecs/rt5509-calib.o
+  AR      drivers/bus/built-in.a
+  AR      sound/spi/built-in.a
+  CC      net/802/p8022.o
+  CC      drivers/base/init.o
+  CC      drivers/base/map.o
+  CC      drivers/base/devres.o
+  AR      sound/soc/codecs/built-in.a
+  AR      sound/soc/dwc/built-in.a
+  CC      net/802/psnap.o
+  AR      sound/soc/fsl/built-in.a
+  AR      sound/soc/generic/built-in.a
+  AR      sound/soc/hisilicon/built-in.a
+  AR      sound/soc/img/built-in.a
+  AR      sound/soc/intel/boards/built-in.a
+  AR      sound/soc/intel/common/built-in.a
+  AR      sound/soc/intel/built-in.a
+  AR      sound/soc/jz4740/built-in.a
+  AR      sound/soc/kirkwood/built-in.a
+  CC      sound/soc/mediatek/codec/mt6357/mtk-soc-codec-6357.o
+  CC      fs/sync.o
+  CC      drivers/base/attribute_container.o
+  CC      net/802/stp.o
+  CC      fs/utimes.o
+  CC      drivers/base/transport_class.o
+  CC      drivers/base/topology.o
+  CC      fs/d_path.o
+  AR      net/802/built-in.a
+  CC      net/bluetooth/af_bluetooth.o
+  CC      drivers/base/container.o
+  CC      drivers/base/property.o
+  CC      fs/stack.o
+  CC      sound/soc/mediatek/codec/mt6357/mtk-auddrv-ana.o
+  CC      fs/fs_struct.o
+  CC      net/bluetooth/hci_core.o
+  CC      fs/statfs.o
+  CC      drivers/base/cacheinfo.o
+  AR      sound/soc/mediatek/codec/mt6357/built-in.a
+  CC      sound/soc/mediatek/common/mtk-btcvsd.o
+In file included from ../include/linux/platform_device.h:14,
+                 from ../include/sound/soc.h:14,
+                 from ../sound/soc/mediatek/common/mtk-btcvsd.c:14:
+../sound/soc/mediatek/common/mtk-btcvsd.c: In function ‘mtk_btcvsd_snd_irq_handler’:
+../sound/soc/mediatek/common/mtk-btcvsd.c:678:20: warning: format ‘%lx’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘u32’ {aka ‘unsigned int’} [-Wformat=]
+  678 |  dev_warn(bt->dev, "%s(), irq_handler_exit, bt_reg_ctl = 0x%lx\n",
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/linux/device.h:1451:22: note: in definition of macro ‘dev_fmt’
+ 1451 | #define dev_fmt(fmt) fmt
+      |                      ^~~
+../sound/soc/mediatek/common/mtk-btcvsd.c:678:2: note: in expansion of macro ‘dev_warn’
+  678 |  dev_warn(bt->dev, "%s(), irq_handler_exit, bt_reg_ctl = 0x%lx\n",
+      |  ^~~~~~~~
+../sound/soc/mediatek/common/mtk-btcvsd.c:678:62: note: format string is defined here
+  678 |  dev_warn(bt->dev, "%s(), irq_handler_exit, bt_reg_ctl = 0x%lx\n",
+      |                                                            ~~^
+      |                                                              |
+      |                                                              long unsigned int
+      |                                                            %x
+  CC      drivers/base/devcon.o
+  CC      fs/fs_pin.o
+  CC      drivers/base/module.o
+  AR      sound/soc/mediatek/common/built-in.a
+  CC      sound/soc/mediatek/common_int/mtk-auddrv-devtree-parser.o
+  CC      drivers/base/soc.o
+  CC      fs/nsfs.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-speaker-amp.o
+  CC      drivers/base/pinctrl.o
+  CC      fs/buffer.o
+  CC      drivers/base/platform-msi.o
+  CC      sound/soc/mediatek/common_int/mtk-auddrv-afe.o
+  CC      drivers/base/arch_topology.o
+  CC      net/bluetooth/hci_conn.o
+  AR      drivers/base/built-in.a
+  CC      sound/soc/mediatek/common_int/mtk-auddrv-gpio.o
+  AR      drivers/cdrom/built-in.a
+  AR      drivers/char/agp/built-in.a
+  CC      drivers/char/hw_random/core.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-afe-control.o
+  CC      drivers/char/hw_random/virtio-rng.o
+  CC      drivers/char/hw_random/mtk-rng.o
+  CC      fs/block_dev.o
+  CC      drivers/char/hw_random/mt67xx-rng.o
+  AR      drivers/char/hw_random/built-in.a
+  CC      drivers/char/rpmb/rpmb-mtk.o
+  CC      net/bluetooth/hci_event.o
+  CC      drivers/char/rpmb/core.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-common.o
+  CC      fs/direct-io.o
+  AR      drivers/char/rpmb/built-in.a
+  CC      drivers/char/mem.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-capture.o
+  CC      drivers/char/random.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-dl1.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-dummy.o
+  CC      fs/mpage.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-routing.o
+  CC      net/bluetooth/mgmt.o
+  CC      drivers/char/misc.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-capture2.o
+  CC      drivers/char/virtio_console.o
+  CC      fs/proc_namespace.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-i2s2-adc2.o
+  CC      fs/eventpoll.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-voice-md1.o
+  AR      drivers/char/built-in.a
+  AR      drivers/char/ipmi/built-in.a
+  AR      drivers/clk/actions/built-in.a
+  AR      drivers/clk/bcm/built-in.a
+  AR      drivers/clk/imgtec/built-in.a
+  CC      drivers/clk/mediatek/clk-mtk.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-voice-md2.o
+  CC      fs/anon_inodes.o
+  CC      drivers/clk/mediatek/clk-pll.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-voice-md1-bt.o
+  CC      fs/signalfd.o
+  CC      drivers/clk/mediatek/clk-gate.o
+  CC      fs/timerfd.o
+  CC      drivers/clk/mediatek/clk-apmixed.o
+  CC      net/bluetooth/hci_sock.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-voice-md2-bt.o
+  CC      drivers/clk/mediatek/clk-cpumux.o
+  CC      drivers/clk/mediatek/reset.o
+  CC      fs/eventfd.o
+  CC      drivers/clk/mediatek/clk-mux.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-voice-usb.o
+  CC      drivers/clk/mediatek/clkchk.o
+  CC      fs/aio.o
+  CC      drivers/clk/mediatek/clk-mt6761.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-voice-usb-echoref.o
+  CC      net/bluetooth/hci_sysfs.o
+  CC      drivers/clk/mediatek/clk-mt6761-pg.o
+In file included from ../include/linux/printk.h:7,
+                 from ../include/linux/kernel.h:13,
+                 from ../include/linux/clk.h:16,
+                 from ../drivers/clk/mediatek/clk-mt6761-pg.c:7:
+../drivers/clk/mediatek/clk-mt6761-pg.c: In function ‘init_clks’:
+../include/linux/kern_levels.h:5:18: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/clk/mediatek/clk-mt6761-pg.c:2915:4: note: in expansion of macro ‘pr_err’
+ 2915 |    pr_err("fail to get scpsys %s clk = (%d)\n",
+      |    ^~~~~~
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-dl1-i2s0.o
+  CC      net/bluetooth/l2cap_core.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-dl1-i2s0Dl1.o
+  CC      drivers/clk/mediatek/clk-mt6761-audio.o
+  CC      drivers/clk/mediatek/clk-mt6761-cam.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-i2s0-awb.o
+  CC      fs/locks.o
+  CC      drivers/clk/mediatek/clk-mt6761-mipi0a.o
+  CC      drivers/clk/mediatek/clk-mt6761-mm.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-uldlloopback.o
+  CC      drivers/clk/mediatek/clk-mt6761-vcodec.o
+  CC      drivers/clk/mediatek/clk-fhctl.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-dl2.o
+  CC      drivers/clk/mediatek/clk-fhctl-sspm.o
+  AR      drivers/clk/mediatek/built-in.a
+  AR      drivers/clk/mvebu/built-in.a
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-deep-buffer-dl.o
+  AR      drivers/clk/renesas/built-in.a
+  AR      drivers/clk/ti/built-in.a
+  CC      drivers/clk/clk-devres.o
+  CC      drivers/clk/clk-bulk.o
+  CC      fs/compat.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-mrgrx.o
+  CC      drivers/clk/clkdev.o
+  CC      fs/compat_ioctl.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-mrgrx-awb.o
+  CC      drivers/clk/clk.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-fm-i2s.o
+  CC      net/bluetooth/l2cap_sock.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-fm-i2s-awb.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-dl1-awb.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-dl1-bt.o
+  CC      fs/binfmt_script.o
+  CC      net/bluetooth/smp.o
+  CC      fs/binfmt_elf.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-bt-dai.o
+  CC      drivers/clk/clk-divider.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-dai-stub.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-dai-routing.o
+  CC      fs/compat_binfmt_elf.o
+  CC      drivers/clk/clk-fixed-factor.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-codec-dummy.o
+  CC      drivers/clk/clk-fixed-rate.o
+  CC      net/bluetooth/lib.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-fmtx.o
+  CC      drivers/clk/clk-gate.o
+  CC      fs/mbcache.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-tdm-capture.o
+  CC      drivers/clk/clk-multiplier.o
+  CC      net/bluetooth/ecdh_helper.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-pcm-hp-impedance.o
+  CC      drivers/clk/clk-mux.o
+  CC      fs/posix_acl.o
+  CC      net/bluetooth/hci_request.o
+  CC      sound/soc/mediatek/common_int/mtk-soc-machine.o
+  CC      drivers/clk/clk-composite.o
+  CC      drivers/clk/clk-fractional-divider.o
+  CC      fs/coredump.o
+  AR      sound/soc/mediatek/common_int/built-in.a
+  CC      sound/soc/mediatek/mt6765/mtk-auddrv-clk.o
+  CC      drivers/clk/clk-gpio.o
+  CC      drivers/clk/clk-conf.o
+  CC      sound/soc/mediatek/mt6765/mtk-soc-afe-connection.o
+  CC      fs/drop_caches.o
+  CC      net/bluetooth/mgmt_util.o
+  CC      drivers/clk/clk-scpi.o
+  CC      fs/iomap.o
+  AR      drivers/clk/built-in.a
+  CC      drivers/clocksource/timer-of.o
+  CC      sound/soc/mediatek/mt6765/mt6765-sound.o
+  CC      net/bluetooth/sco.o
+  CC      drivers/clocksource/timer-probe.o
+  CC      drivers/clocksource/mmio.o
+  CC      drivers/clocksource/timer-mediatek.o
+  CC      drivers/clocksource/arm_arch_timer.o
+  CC      net/bluetooth/a2mp.o
+  CC      fs/dcookies.o
+  AR      sound/soc/mediatek/mt6765/built-in.a
+  AR      sound/soc/mediatek/built-in.a
+  AR      sound/soc/meson/built-in.a
+  AR      sound/soc/mxs/built-in.a
+  AR      sound/soc/nuc900/built-in.a
+  AR      sound/soc/omap/built-in.a
+  AR      sound/soc/pxa/built-in.a
+  AR      sound/soc/qcom/built-in.a
+  AR      sound/soc/rockchip/built-in.a
+  AR      sound/soc/samsung/built-in.a
+  AR      sound/soc/sh/built-in.a
+  AR      sound/soc/sirf/built-in.a
+  AR      sound/soc/spear/built-in.a
+  AR      sound/soc/sti/built-in.a
+  AR      sound/soc/stm/built-in.a
+  AR      sound/soc/sunxi/built-in.a
+  AR      sound/soc/tegra/built-in.a
+  AR      sound/soc/txx9/built-in.a
+  AR      sound/soc/uniphier/built-in.a
+  AR      sound/soc/ux500/built-in.a
+  AR      sound/soc/xtensa/built-in.a
+  AR      sound/soc/zte/built-in.a
+  CC      sound/soc/soc-core.o
+  CC      drivers/clocksource/dummy_timer.o
+  AR      fs/built-in.a
+  AR      drivers/clocksource/built-in.a
+  CC      drivers/cpufreq/cpufreq.o
+  AR      sound/synth/built-in.a
+  CC      net/bpf/test_run.o
+  CC      net/bluetooth/amp.o
+  AR      net/bpf/built-in.a
+  CC      sound/soc/soc-dapm.o
+  AR      net/bluetooth/built-in.a
+  AR      net/bridge/netfilter/built-in.a
+  CC      net/bridge/br.o
+  CC      net/bridge/br_device.o
+  CC      drivers/cpufreq/freq_table.o
+  CC      net/core/sock.o
+  CC      drivers/cpufreq/cpufreq_stats.o
+  CC      drivers/cpufreq/cpufreq_times.o
+  CC      net/bridge/br_fdb.o
+  CC      sound/soc/soc-jack.o
+  CC      drivers/cpufreq/cpufreq_performance.o
+  CC      drivers/cpufreq/cpufreq_powersave.o
+  CC      drivers/cpufreq/cpufreq_conservative.o
+  CC      drivers/cpufreq/cpufreq_governor.o
+  CC      sound/soc/soc-utils.o
+  CC      net/bridge/br_forward.o
+  CC      drivers/cpufreq/cpufreq_governor_attr_set.o
+  CC      sound/soc/soc-pcm.o
+  CC      drivers/cpufreq/scmi-cpufreq.o
+  CC      net/core/request_sock.o
+  CC      drivers/cpufreq/scpi-cpufreq.o
+  CC      net/bridge/br_if.o
+  CC      net/core/skbuff.o
+  AR      drivers/cpufreq/built-in.a
+  CC      drivers/cpuidle/governors/menu.o
+  CC      drivers/cpuidle/governors/mtk_menu.o
+  AR      drivers/cpuidle/governors/built-in.a
+  CC      drivers/cpuidle/cpuidle.o
+  CC      net/bridge/br_input.o
+  CC      sound/soc/soc-io.o
+  CC      drivers/cpuidle/driver.o
+  CC      sound/soc/soc-devres.o
+  CC      net/bridge/br_ioctl.o
+  CC      drivers/cpuidle/governor.o
+  CC      sound/soc/soc-ops.o
+  CC      drivers/cpuidle/sysfs.o
+  CC      net/bridge/br_stp.o
+  CC      drivers/cpuidle/dt_idle_states.o
+  CC      sound/soc/soc-generic-dmaengine-pcm.o
+  CC      drivers/cpuidle/cpuidle-mtk_acao.o
+  CC      net/bridge/br_stp_bpdu.o
+  AR      drivers/cpuidle/built-in.a
+  AR      drivers/crypto/hisilicon/built-in.a
+  CC      drivers/crypto/virtio/virtio_crypto_algs.o
+  CC      net/core/datagram.o
+  CC      sound/soc/soc-compress.o
+  CC      net/bridge/br_stp_if.o
+  CC      drivers/crypto/virtio/virtio_crypto_mgr.o
+  CC      drivers/crypto/virtio/virtio_crypto_core.o
+  CC      net/bridge/br_stp_timer.o
+  CC      net/core/stream.o
+  AR      sound/soc/built-in.a
+  AR      sound/usb/6fire/built-in.a
+  AR      sound/usb/bcd2000/built-in.a
+  AR      sound/usb/caiaq/built-in.a
+  AR      sound/usb/hiface/built-in.a
+  AR      sound/usb/misc/built-in.a
+  AR      sound/usb/usx2y/built-in.a
+  CC      sound/usb/card.o
+  AR      drivers/crypto/virtio/built-in.a
+  AR      drivers/crypto/built-in.a
+  CC      drivers/devfreq/devfreq.o
+  CC      net/bridge/br_netlink.o
+  CC      net/core/scm.o
+  CC      sound/usb/clock.o
+  CC      drivers/devfreq/governor_performance.o
+  CC      drivers/devfreq/governor_powersave.o
+  CC      net/bridge/br_netlink_tunnel.o
+  CC      drivers/devfreq/governor_userspace.o
+  CC      sound/usb/endpoint.o
+  CC      drivers/devfreq/governor_passive.o
+  AR      drivers/devfreq/built-in.a
+  CC      net/core/gen_stats.o
+  CC      drivers/dma/mediatek/mtk-uart-apdma.o
+  CC      net/bridge/br_arp_nd_proxy.o
+  CC      sound/usb/format.o
+  CC      drivers/dma/mediatek/mtk-hsdma.o
+  CC      sound/usb/helper.o
+  CC      net/bridge/br_sysfs_if.o
+  CC      net/core/gen_estimator.o
+  CC      sound/usb/mixer.o
+  AR      drivers/dma/mediatek/built-in.a
+  AR      drivers/dma/qcom/built-in.a
+  AR      drivers/dma/ti/built-in.a
+  AR      drivers/dma/xilinx/built-in.a
+  CC      drivers/dma/dmaengine.o
+  CC      net/bridge/br_sysfs_br.o
+  CC      net/core/net_namespace.o
+  CC      net/bridge/br_nf_core.o
+  CC      drivers/dma/virt-dma.o
+  CC      sound/usb/mixer_quirks.o
+  CC      net/bridge/br_netfilter_hooks.o
+  CC      drivers/dma/of-dma.o
+  CC      net/core/secure_seq.o
+  CC      sound/usb/mixer_scarlett.o
+  AR      drivers/dma/built-in.a
+  CC      drivers/dma-buf/dma-buf.o
+  CC      net/bridge/br_netfilter_ipv6.o
+  CC      sound/usb/mixer_us16x08.o
+  CC      net/core/flow_dissector.o
+  CC      sound/usb/pcm.o
+  AR      net/bridge/built-in.a
+  CC      drivers/dma-buf/dma-fence.o
+  CC      arch/arm64/lib/atomic_ll_sc.o
+  AS      arch/arm64/lib/clear_page.o
+  AS      arch/arm64/lib/clear_user.o
+  AS      arch/arm64/lib/copy_from_user.o
+  AS      arch/arm64/lib/copy_in_user.o
+  AS      arch/arm64/lib/copy_page.o
+  AS      arch/arm64/lib/copy_to_user.o
+  CC      arch/arm64/lib/delay.o
+  AS      arch/arm64/lib/memchr.o
+  AS      arch/arm64/lib/memcmp.o
+  AS      arch/arm64/lib/memcpy.o
+  AS      arch/arm64/lib/memmove.o
+  AS      arch/arm64/lib/memset.o
+  AS      arch/arm64/lib/strchr.o
+  AS      arch/arm64/lib/strcmp.o
+  CC      net/core/sysctl_net_core.o
+  CC      drivers/dma-buf/dma-fence-array.o
+  AS      arch/arm64/lib/strlen.o
+  AS      arch/arm64/lib/strncmp.o
+  AS      arch/arm64/lib/strnlen.o
+  AS      arch/arm64/lib/strrchr.o
+  AS      arch/arm64/lib/tishift.o
+  CC      sound/usb/power.o
+  AR      arch/arm64/lib/lib.a
+  EXPORTS arch/arm64/lib/lib-ksyms.o
+  AR      arch/arm64/lib/built-in.a
+  AR      sound/x86/built-in.a
+  CC      net/core/dev.o
+  CC      drivers/dma-buf/reservation.o
+  CC      sound/usb/proc.o
+  CC      sound/usb/quirks.o
+  CC      drivers/dma-buf/seqno-fence.o
+  CC      drivers/edac/edac_mc.o
+  CC      drivers/dma-buf/sync_file.o
+  CC      sound/usb/stream.o
+  CC      drivers/edac/edac_device.o
+  AR      drivers/dma-buf/built-in.a
+  AR      drivers/energy_model/built-in.a
+  CC      drivers/edac/edac_mc_sysfs.o
+  CC      sound/usb/validate.o
+  CC      sound/usb/midi.o
+  CC      net/ethernet/eth.o
+  CC      drivers/edac/edac_module.o
+  CC      drivers/edac/edac_device_sysfs.o
+  CC      drivers/edac/wq.o
+  AR      net/ethernet/built-in.a
+  CC      net/ipv4/netfilter/nf_nat_l3proto_ipv4.o
+  AR      sound/usb/built-in.a
+  AR      sound/xen/built-in.a
+  CC      sound/sound_core.o
+  CC      sound/last.o
+  AR      drivers/edac/built-in.a
+  CC      drivers/extcon/extcon.o
+  AR      sound/built-in.a
+  CC      net/ipv6/netfilter/ip6_tables.o
+  CC      net/ipv4/netfilter/nf_nat_proto_icmp.o
+  CC      drivers/extcon/devres.o
+  AR      drivers/extcon/built-in.a
+  AR      drivers/firewire/built-in.a
+  CC      net/ipv4/netfilter/nf_nat_masquerade_ipv4.o
+  CC      drivers/firmware/arm_scmi/bus.o
+  CC      net/core/ethtool.o
+  CC      drivers/firmware/arm_scmi/driver.o
+  CC      net/ipv6/netfilter/ip6table_filter.o
+  CC      drivers/firmware/arm_scmi/base.o
+  CC      net/ipv4/netfilter/nf_defrag_ipv4.o
+  CC      drivers/firmware/arm_scmi/clock.o
+  CC      net/ipv6/netfilter/ip6table_mangle.o
+  CC      drivers/firmware/arm_scmi/perf.o
+  CC      drivers/firmware/arm_scmi/power.o
+  CC      net/ipv6/netfilter/ip6table_raw.o
+  CC      drivers/firmware/arm_scmi/sensors.o
+  CC      net/ipv4/netfilter/nf_socket_ipv4.o
+  AR      drivers/firmware/arm_scmi/built-in.a
+  AR      drivers/firmware/broadcom/built-in.a
+  AR      drivers/firmware/meson/built-in.a
+  AR      drivers/firmware/tegra/built-in.a
+  CC      drivers/firmware/psci.o
+  CC      net/ipv6/netfilter/nf_nat_l3proto_ipv6.o
+  CC      net/core/dev_addr_lists.o
+  CC      drivers/firmware/arm_scpi.o
+  CC      net/ipv4/netfilter/nf_tproxy_ipv4.o
+  CC      net/ipv6/netfilter/nf_nat_proto_icmpv6.o
+  AR      drivers/firmware/built-in.a
+  CC      drivers/gpio/devres.o
+  CC      net/core/dst.o
+  CC      net/ipv6/netfilter/nf_defrag_ipv6_hooks.o
+  CC      drivers/gpio/gpiolib.o
+  CC      net/ipv4/netfilter/nf_reject_ipv4.o
+  CC      net/core/netevent.o
+  CC      net/ipv6/netfilter/nf_conntrack_reasm.o
+  CC      net/ipv4/netfilter/nf_nat_h323.o
+  CC      net/core/neighbour.o
+  CC      net/ipv4/netfilter/nf_nat_pptp.o
+  CC      net/ipv6/netfilter/nf_socket_ipv6.o
+  CC      drivers/gpio/gpiolib-legacy.o
+  CC      net/ipv4/netfilter/nf_nat_proto_gre.o
+  CC      drivers/gpio/gpiolib-devprop.o
+  CC      net/ipv6/netfilter/nf_tproxy_ipv6.o
+  CC      drivers/gpio/gpiolib-of.o
+  CC      net/ipv4/netfilter/ip_tables.o
+  CC      drivers/gpio/gpio-pl061.o
+  CC      net/core/rtnetlink.o
+  CC      net/ipv6/netfilter/nf_reject_ipv6.o
+  AR      drivers/gpio/built-in.a
+  AR      drivers/gpu/drm/amd/lib/built-in.a
+  AR      drivers/gpu/drm/bridge/synopsys/built-in.a
+  AR      drivers/gpu/drm/bridge/built-in.a
+  AR      drivers/gpu/drm/hisilicon/built-in.a
+  AR      drivers/gpu/drm/i2c/built-in.a
+  AR      drivers/gpu/drm/omapdrm/displays/built-in.a
+  AR      drivers/gpu/drm/omapdrm/dss/built-in.a
+  AR      drivers/gpu/drm/omapdrm/built-in.a
+  AR      drivers/gpu/drm/panel/built-in.a
+  AR      drivers/gpu/drm/tilcdc/built-in.a
+  CC      drivers/gpu/drm/ttm/ttm_memory.o
+  CC      drivers/gpu/drm/ttm/ttm_tt.o
+  CC      net/ipv6/netfilter/ip6t_frag.o
+  CC      net/ipv4/netfilter/iptable_filter.o
+  CC      net/ipv6/netfilter/ip6t_ipv6header.o
+  CC      drivers/gpu/drm/ttm/ttm_bo.o
+  CC      net/ipv4/netfilter/iptable_mangle.o
+  CC      net/ipv6/netfilter/ip6t_rpfilter.o
+  CC      net/ipv4/netfilter/iptable_nat.o
+  CC      net/core/utils.o
+  CC      net/ipv6/netfilter/ip6t_REJECT.o
+  CC      drivers/gpu/drm/ttm/ttm_bo_util.o
+  CC      net/ipv4/netfilter/iptable_raw.o
+  AR      net/ipv6/netfilter/built-in.a
+  CC      net/ipv6/af_inet6.o
+  CC      net/ipv4/netfilter/iptable_security.o
+  CC      net/core/link_watch.o
+  CC      drivers/gpu/drm/ttm/ttm_bo_vm.o
+  CC      net/ipv4/netfilter/ipt_ah.o
+  CC      drivers/gpu/drm/ttm/ttm_module.o
+  CC      net/ipv4/netfilter/ipt_MASQUERADE.o
+  CC      net/core/filter.o
+  CC      drivers/gpu/drm/ttm/ttm_object.o
+  CC      net/ipv6/anycast.o
+  CC      net/ipv4/netfilter/ipt_REJECT.o
+  CC      drivers/gpu/drm/ttm/ttm_lock.o
+  CC      net/ipv6/ip6_output.o
+  CC      net/ipv4/netfilter/arp_tables.o
+  CC      drivers/gpu/drm/ttm/ttm_execbuf_util.o
+  CC      drivers/gpu/drm/ttm/ttm_page_alloc.o
+  CC      net/ipv4/netfilter/arpt_mangle.o
+  CC      drivers/gpu/drm/ttm/ttm_bo_manager.o
+  CC      net/ipv4/netfilter/arptable_filter.o
+  CC      net/ipv6/ip6_input.o
+  CC      drivers/gpu/drm/ttm/ttm_page_alloc_dma.o
+  AR      net/ipv4/netfilter/built-in.a
+  CC      net/ipv4/route.o
+  CC      net/core/sock_diag.o
+  AR      drivers/gpu/drm/ttm/built-in.a
+  CC      drivers/gpu/drm/virtio/virtgpu_drv.o
+  CC      net/ipv6/addrconf.o
+  CC      net/core/dev_ioctl.o
+  CC      drivers/gpu/drm/virtio/virtgpu_kms.o
+  CC      drivers/gpu/drm/virtio/virtgpu_gem.o
+  CC      net/core/tso.o
+  CC      drivers/gpu/drm/virtio/virtgpu_fb.o
+  CC      net/ipv4/inetpeer.o
+  CC      drivers/gpu/drm/virtio/virtgpu_display.o
+  CC      net/core/sock_reuseport.o
+  CC      drivers/gpu/drm/virtio/virtgpu_vq.o
+  CC      net/ipv4/protocol.o
+  CC      net/core/fib_notifier.o
+  CC      drivers/gpu/drm/virtio/virtgpu_ttm.o
+  CC      net/ipv4/ip_input.o
+  CC      drivers/gpu/drm/virtio/virtgpu_fence.o
+  CC      net/ipv6/addrlabel.o
+  CC      net/core/xdp.o
+  CC      drivers/gpu/drm/virtio/virtgpu_object.o
+  CC      net/ipv4/ip_fragment.o
+  CC      net/ipv6/route.o
+  CC      drivers/gpu/drm/virtio/virtgpu_debugfs.o
+  CC      net/core/net-sysfs.o
+  CC      drivers/gpu/drm/virtio/virtgpu_plane.o
+  CC      net/ipv4/ip_forward.o
+  CC      drivers/gpu/drm/virtio/virtgpu_ioctl.o
+  CC      net/ipv4/ip_options.o
+  CC      drivers/gpu/drm/virtio/virtgpu_prime.o
+  CC      drivers/gpu/drm/virtio/virtgpu_trace_points.o
+  CC      net/core/net-procfs.o
+  AR      drivers/gpu/drm/virtio/built-in.a
+  CC      drivers/gpu/drm/drm_crtc_helper.o
+  CC      net/core/fib_rules.o
+  CC      net/ipv4/ip_output.o
+  CC      net/ipv6/ip6_fib.o
+  CC      drivers/gpu/drm/drm_dp_helper.o
+  CC      net/core/net-traces.o
+  CC      drivers/gpu/drm/drm_probe_helper.o
+  CC      net/ipv4/ip_sockglue.o
+  CC      net/ipv6/ipv6_sockglue.o
+  CC      drivers/gpu/drm/drm_plane_helper.o
+  CC      drivers/gpu/drm/drm_dp_mst_topology.o
+  CC      net/ipv4/inet_hashtables.o
+  CC      net/core/dst_cache.o
+  CC      net/ipv6/ndisc.o
+  CC      net/core/gro_cells.o
+  CC      net/ipv4/inet_timewait_sock.o
+  CC      drivers/gpu/drm/drm_atomic_helper.o
+  CC      net/core/failover.o
+  CC      net/ipv6/udp.o
+  CC      net/ipv4/inet_connection_sock.o
+  AR      net/core/built-in.a
+  CC      drivers/gpu/mediatek/ged/src/ged.o
+  CC      drivers/gpu/mediatek/ged/src/ged_base.o
+  CC      drivers/gpu/mediatek/ged/src/ged_main.o
+  CC      drivers/gpu/drm/drm_kms_helper_common.o
+In file included from ../include/linux/printk.h:7,
+                 from ../include/linux/kernel.h:13,
+                 from ../include/linux/list.h:9,
+                 from ../include/linux/kobject.h:19,
+                 from ../include/linux/cdev.h:5,
+                 from ../drivers/gpu/mediatek/ged/src/ged_main.c:6:
+../drivers/gpu/mediatek/ged/src/ged_main.c: In function ‘ged_dispatch’:
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:241:4: note: in expansion of macro ‘VALIDATE_ARG’
+  241 |    VALIDATE_ARG(LOGBUFGET);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:245:4: note: in expansion of macro ‘VALIDATE_ARG’
+  245 |    VALIDATE_ARG(LOGBUFWRITE);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:249:4: note: in expansion of macro ‘VALIDATE_ARG’
+  249 |    VALIDATE_ARG(LOGBUFRESET);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:253:4: note: in expansion of macro ‘VALIDATE_ARG’
+  253 |    VALIDATE_ARG(BOOSTGPUFREQ);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:257:4: note: in expansion of macro ‘VALIDATE_ARG’
+  257 |    VALIDATE_ARG(MONITOR3DFENCE);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:261:4: note: in expansion of macro ‘VALIDATE_ARG’
+  261 |    VALIDATE_ARG(QUERY_INFO);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:265:4: note: in expansion of macro ‘VALIDATE_ARG’
+  265 |    VALIDATE_ARG(NOTIFY_VSYNC);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:269:4: note: in expansion of macro ‘VALIDATE_ARG’
+  269 |    VALIDATE_ARG(DVFS_PROBE);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:273:4: note: in expansion of macro ‘VALIDATE_ARG’
+  273 |    VALIDATE_ARG(DVFS_UM_RETURN);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:277:4: note: in expansion of macro ‘VALIDATE_ARG’
+  277 |    VALIDATE_ARG(EVENT_NOTIFY);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:281:4: note: in expansion of macro ‘VALIDATE_ARG’
+  281 |    VALIDATE_ARG(GPU_HINT_TO_CPU);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:285:4: note: in expansion of macro ‘VALIDATE_ARG’
+  285 |    VALIDATE_ARG(HINT_FORCE_MDP);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:289:4: note: in expansion of macro ‘VALIDATE_ARG’
+  289 |    VALIDATE_ARG(GE_ALLOC);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:293:4: note: in expansion of macro ‘VALIDATE_ARG’
+  293 |    VALIDATE_ARG(GE_GET);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:297:4: note: in expansion of macro ‘VALIDATE_ARG’
+  297 |    VALIDATE_ARG(GE_SET);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:301:4: note: in expansion of macro ‘VALIDATE_ARG’
+  301 |    VALIDATE_ARG(GE_INFO);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:305:4: note: in expansion of macro ‘VALIDATE_ARG’
+  305 |    VALIDATE_ARG(GPU_TIMESTAMP);
+      |    ^~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: too many arguments for format [-Wformat-extra-args]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:11:18: note: in expansion of macro ‘KERN_SOH’
+   11 | #define KERN_ERR KERN_SOH "3" /* error conditions */
+      |                  ^~~~~~~~
+../include/linux/printk.h:364:9: note: in expansion of macro ‘KERN_ERR’
+  364 |  printk(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~
+../drivers/gpu/mediatek/ged/include/ged_base.h:19:23: note: in expansion of macro ‘pr_err’
+   19 | #define GED_LOGE(...) pr_err(GED_TAG"[ERROR]" __VA_ARGS__)
+      |                       ^~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:227:3: note: in expansion of macro ‘GED_LOGE’
+  227 |   GED_LOGE("GED_BRIDGE_COMMAND_##cmd failed io_size:",\
+      |   ^~~~~~~~
+../drivers/gpu/mediatek/ged/src/ged_main.c:309:4: note: in expansion of macro ‘VALIDATE_ARG’
+  309 |    VALIDATE_ARG(GPU_TUNER_STATUS);
+      |    ^~~~~~~~~~~~
+  CC      drivers/gpu/mediatek/ged/src/ged_sysfs.o
+  CC      drivers/gpu/drm/drm_dp_dual_mode_helper.o
+  CC      drivers/gpu/mediatek/ged/src/ged_hal.o
+  CC      net/ipv4/tcp.o
+  CC      net/ipv6/udplite.o
+  CC      drivers/gpu/mediatek/ged/src/ged_log.o
+  CC      drivers/gpu/drm/drm_simple_kms_helper.o
+  CC      net/ipv6/raw.o
+  CC      drivers/gpu/drm/drm_modeset_helper.o
+  CC      drivers/gpu/mediatek/ged/src/ged_bridge.o
+  CC      drivers/gpu/mediatek/ged/src/ged_monitor_3D_fence.o
+  CC      drivers/gpu/mediatek/ged/src/ged_notify_sw_vsync.o
+  CC      drivers/gpu/drm/drm_scdc_helper.o
+  CC      drivers/gpu/mediatek/ged/src/ged_hashtable.o
+  CC      drivers/gpu/mediatek/ged/src/ged_thread.o
+  CC      net/ipv6/icmp.o
+  CC      drivers/gpu/mediatek/ged/src/ged_ge.o
+  CC      drivers/gpu/drm/drm_gem_framebuffer_helper.o
+  CC      drivers/gpu/mediatek/ged/src/ged_dvfs.o
+  CC      drivers/gpu/drm/bridge/panel.o
+  CC      net/ipv4/tcp_input.o
+  CC      drivers/gpu/mediatek/ged/src/ged_gpu_tuner.o
+  CC      net/ipv6/mcast.o
+  CC      drivers/gpu/drm/drm_auth.o
+  CC      drivers/gpu/mediatek/ged/src/ged_kpi.o
+../drivers/gpu/mediatek/ged/src/ged_kpi.c:48: warning: "GED_TAG" redefined
+   48 | #define GED_TAG "[GED_KPI]"
+      | 
+In file included from ../drivers/gpu/mediatek/ged/src/ged_kpi.c:14:
+../drivers/gpu/mediatek/ged/include/ged_base.h:12: note: this is the location of the previous definition
+   12 | #define GED_TAG "[GPU/GED]"
+      | 
+  CC      drivers/gpu/drm/drm_bufs.o
+../drivers/gpu/mediatek/ged/src/ged_kpi.c:48: warning: "GED_TAG" redefined
+   48 | #define GED_TAG "[GED_KPI]"
+      | 
+In file included from ../drivers/gpu/mediatek/ged/src/ged_kpi.c:14:
+../drivers/gpu/mediatek/ged/include/ged_base.h:12: note: this is the location of the previous definition
+   12 | #define GED_TAG "[GPU/GED]"
+      | 
+  AR      drivers/gpu/mediatek/ged/built-in.a
+[GPU_DEBUG] MTK_GPU_VERSION 2 = clark
+[GPU_DEBUG] MTK_PLATFORM = mt6761
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/cache_bridge/server_cache_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/cache_bridge/client_cache_direct_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxta3d_bridge/server_rgxta3d_bridge.o
+  CC      drivers/gpu/drm/drm_cache.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/sync_bridge/client_sync_direct_bridge.o
+  CC      net/ipv6/reassembly.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/sync_bridge/server_sync_bridge.o
+  CC      drivers/gpu/drm/drm_context.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/synctracking_bridge/client_synctracking_direct_bridge.o
+  CC      net/ipv6/tcp_ipv6.o
+  CC      drivers/gpu/drm/drm_dma.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/synctracking_bridge/server_synctracking_bridge.o
+  CC      net/ipv4/tcp_output.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/srvcore_bridge/server_srvcore_bridge.o
+  CC      drivers/gpu/drm/drm_file.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/devicememhistory_bridge/client_devicememhistory_direct_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/devicememhistory_bridge/server_devicememhistory_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxcmp_bridge/server_rgxcmp_bridge.o
+  CC      drivers/gpu/drm/drm_gem.o
+  CC      net/ipv6/ping.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxhwperf_bridge/server_rgxhwperf_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxfwdbg_bridge/server_rgxfwdbg_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxbreakpoint_bridge/server_rgxbreakpoint_bridge.o
+  CC      drivers/gpu/drm/drm_ioctl.o
+  CC      net/ipv6/exthdrs.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxregconfig_bridge/server_rgxregconfig_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/htbuffer_bridge/client_htbuffer_direct_bridge.o
+  CC      net/ipv4/tcp_timer.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/htbuffer_bridge/server_htbuffer_bridge.o
+  CC      drivers/gpu/drm/drm_irq.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/cmm_bridge/server_cmm_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxtq_bridge/server_rgxtq_bridge.o
+  CC      drivers/gpu/drm/drm_lock.o
+  CC      net/ipv6/datagram.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/mm_bridge/client_mm_direct_bridge.o
+  CC      net/ipv4/tcp_ipv4.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/mm_bridge/server_mm_bridge.o
+  CC      drivers/gpu/drm/drm_memory.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxkicksync_bridge/server_rgxkicksync_bridge.o
+  CC      net/ipv6/ip6_flowlabel.o
+  CC      drivers/gpu/drm/drm_drv.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/pvrtl_bridge/server_pvrtl_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/pvrtl_bridge/client_pvrtl_direct_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxsignals_bridge/server_rgxsignals_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/rgxtq2_bridge/server_rgxtq2_bridge.o
+  CC      net/ipv4/tcp_minisocks.o
+  CC      drivers/gpu/drm/drm_scatter.o
+  CC      net/ipv6/inet6_connection_sock.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/generated/rogue/dmabuf_bridge/server_dmabuf_bridge.o
+  CC      drivers/gpu/drm/drm_pci.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/ion_support.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/sysconfig.o
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/sysconfig.c: In function ‘SysDevInit’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/sysconfig.c:220:34: warning: implicit conversion from ‘enum <anonymous>’ to ‘IMG_BOOL’ {aka ‘enum tag_img_bool’} [-Wenum-conversion]
+  220 |  gsRGXTimingInfo.bEnableActivePM = true;
+      |                                  ^
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/sysconfig.c:228:37: warning: implicit conversion from ‘enum <anonymous>’ to ‘IMG_BOOL’ {aka ‘enum tag_img_bool’} [-Wenum-conversion]
+  228 |  gsRGXTimingInfo.bEnableRDPowIsland = true;
+      |                                     ^
+  CC      drivers/gpu/drm/drm_sysfs.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.o
+  CC      net/ipv4/tcp_cong.o
+  CC      net/ipv6/udp_offload.o
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c: In function ‘MTKEnableMfgMtcmos0’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:237:44: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  237 |   "%s mfg0 (0x%p)", __func__, mtcmos_mfg0));
+      |                                            ^
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c: In function ‘MTKDisableMfgMtcmos0’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:254:50: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  254 |   PVR_DPF((PVR_DBG_MESSAGE, "%s mfg0", __func__));
+      |                                                  ^
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c: In function ‘MTKInitHWAPM’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:335:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  335 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  336 |   (g_pvRegsKM + 0x504), mfg_readl(g_pvRegsKM + 0x504)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:335:3: note: in expansion of macro ‘PVR_DPF’
+  335 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:335:50: note: format string is defined here
+  335 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:338:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  338 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  339 |   (g_pvRegsKM + 0x508), mfg_readl(g_pvRegsKM + 0x508)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:338:3: note: in expansion of macro ‘PVR_DPF’
+  338 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:338:50: note: format string is defined here
+  338 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:341:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  341 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  342 |   (g_pvRegsKM + 0x50c), mfg_readl(g_pvRegsKM + 0x50c)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:341:3: note: in expansion of macro ‘PVR_DPF’
+  341 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:341:50: note: format string is defined here
+  341 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:344:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  344 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  345 |   (g_pvRegsKM + 0x510), mfg_readl(g_pvRegsKM + 0x510)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:344:3: note: in expansion of macro ‘PVR_DPF’
+  344 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:344:50: note: format string is defined here
+  344 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:347:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  347 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  348 |   (g_pvRegsKM + 0x514), mfg_readl(g_pvRegsKM + 0x514)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:347:3: note: in expansion of macro ‘PVR_DPF’
+  347 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:347:50: note: format string is defined here
+  347 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:350:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  350 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  351 |   (g_pvRegsKM + 0x518), mfg_readl(g_pvRegsKM + 0x518)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:350:3: note: in expansion of macro ‘PVR_DPF’
+  350 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:350:50: note: format string is defined here
+  350 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:353:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  353 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  354 |   (g_pvRegsKM + 0x51c), mfg_readl(g_pvRegsKM + 0x51c)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:353:3: note: in expansion of macro ‘PVR_DPF’
+  353 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:353:50: note: format string is defined here
+  353 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:356:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  356 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  357 |   (g_pvRegsKM + 0x520), mfg_readl(g_pvRegsKM + 0x520)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:356:3: note: in expansion of macro ‘PVR_DPF’
+  356 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:356:50: note: format string is defined here
+  356 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:359:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  359 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  360 |   (g_pvRegsKM + 0x524), mfg_readl(g_pvRegsKM + 0x524)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:359:3: note: in expansion of macro ‘PVR_DPF’
+  359 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:359:50: note: format string is defined here
+  359 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/pvr_notifier.h:47,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/mmu_common.h:88,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:50,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:362:27: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘void *’ [-Wformat=]
+  362 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  363 |   (g_pvRegsKM + 0x528), mfg_readl(g_pvRegsKM + 0x528)));
+      |   ~~~~~~~~~~~~~~~~~~~~     
+      |               |
+      |               void *
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:234:66: note: in definition of macro ‘__PVR_DPF_0x002UL’
+  234 |  #define __PVR_DPF_0x002UL(...) PVRSRVDebugPrintf(DBGPRIV_ERROR, __VA_ARGS__)
+      |                                                                  ^~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//include/pvr_debug.h:275:21: note: in expansion of macro ‘__PVR_DPF’
+  275 |  #define PVR_DPF(x) __PVR_DPF x
+      |                     ^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:362:3: note: in expansion of macro ‘PVR_DPF’
+  362 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |   ^~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:362:50: note: format string is defined here
+  362 |   PVR_DPF((PVR_DBG_ERROR, "HWAPM: *g_pvRegsKM+0x%x = 0x%x",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %p
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c: In function ‘MTKDoGpuDVFS’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:409:44: warning: passing argument 1 of ‘PVRSRVDevicePreClockSpeedChange’ makes pointer from integer without a cast [-Wint-conversion]
+  409 |  eResult = PVRSRVDevicePreClockSpeedChange(ui32RGXDevIdx,
+      |                                            ^~~~~~~~~~~~~
+      |                                            |
+      |                                            IMG_UINT32 {aka unsigned int}
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/device.h:62,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:53,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/power.h:106:66: note: expected ‘PPVRSRV_DEVICE_NODE’ {aka ‘struct _PVRSRV_DEVICE_NODE_ *’} but argument is of type ‘IMG_UINT32’ {aka ‘unsigned int’}
+  106 | PVRSRV_ERROR PVRSRVDevicePreClockSpeedChange(PPVRSRV_DEVICE_NODE psDeviceNode,
+      |                                              ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:412:29: warning: passing argument 1 of ‘PVRSRVGetDevicePowerState’ makes pointer from integer without a cast [-Wint-conversion]
+  412 |   PVRSRVGetDevicePowerState(ui32RGXDevIdx, &ePowerState);
+      |                             ^~~~~~~~~~~~~
+      |                             |
+      |                             IMG_UINT32 {aka unsigned int}
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/device.h:62,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:53,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/power.h:101:61: note: expected ‘PCPVRSRV_DEVICE_NODE’ {aka ‘const struct _PVRSRV_DEVICE_NODE_ *’} but argument is of type ‘IMG_UINT32’ {aka ‘unsigned int’}
+  101 | PVRSRV_ERROR PVRSRVGetDevicePowerState(PCPVRSRV_DEVICE_NODE psDeviceNode,
+      |                                        ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:421:25: warning: passing argument 1 of ‘MTKWriteBackFreqToRGX’ makes pointer from integer without a cast [-Wint-conversion]
+  421 |   MTKWriteBackFreqToRGX(ui32RGXDevIdx, ui32GPUFreq);
+      |                         ^~~~~~~~~~~~~
+      |                         |
+      |                         IMG_UINT32 {aka unsigned int}
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:180:55: note: expected ‘PVRSRV_DEVICE_NODE *’ {aka ‘struct _PVRSRV_DEVICE_NODE_ *’} but argument is of type ‘IMG_UINT32’ {aka ‘unsigned int’}
+  180 | static void MTKWriteBackFreqToRGX(PVRSRV_DEVICE_NODE *psDevNode,
+      |                                   ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:433:37: warning: passing argument 1 of ‘PVRSRVDevicePostClockSpeedChange’ makes pointer from integer without a cast [-Wint-conversion]
+  433 |    PVRSRVDevicePostClockSpeedChange(ui32RGXDevIdx,
+      |                                     ^~~~~~~~~~~~~
+      |                                     |
+      |                                     IMG_UINT32 {aka unsigned int}
+In file included from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/device.h:62,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/devices/rogue/rgxdevice.h:53,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.h:10,
+                 from ../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:8:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728//services/server/include/power.h:110:59: note: expected ‘PPVRSRV_DEVICE_NODE’ {aka ‘struct _PVRSRV_DEVICE_NODE_ *’} but argument is of type ‘IMG_UINT32’ {aka ‘unsigned int’}
+  110 | void PVRSRVDevicePostClockSpeedChange(PPVRSRV_DEVICE_NODE psDeviceNode,
+      |                                       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c: In function ‘MTKSystemPrePowerState’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:930:3: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  930 |   ;
+      |   ^
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c: In function ‘MTKSystemPostPowerState’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:938:3: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  938 |   ;
+      |   ^
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c: In function ‘MTKMFGSystemInit’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1296:1: warning: label ‘ERROR’ defined but not used [-Wunused-label]
+ 1296 | ERROR:
+      | ^~~~~
+At top level:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1419:19: warning: ‘mtk_mfg_2d_init’ defined but not used [-Wunused-function]
+ 1419 | static int __init mtk_mfg_2d_init(void)
+      |                   ^~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1409:19: warning: ‘mtk_mfg_async_init’ defined but not used [-Wunused-function]
+ 1409 | static int __init mtk_mfg_async_init(void)
+      |                   ^~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1143:13: warning: ‘MTKFakeGpuLoading’ defined but not used [-Wunused-function]
+ 1143 | static void MTKFakeGpuLoading(unsigned int *pui32Loading,
+      |             ^~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1078:19: warning: ‘MTKGetPowerIndex’ defined but not used [-Wunused-function]
+ 1078 | static IMG_UINT32 MTKGetPowerIndex(void)
+      |                   ^~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1073:19: warning: ‘MTKGetGpuIdle’ defined but not used [-Wunused-function]
+ 1073 | static IMG_UINT32 MTKGetGpuIdle(void)
+      |                   ^~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1068:19: warning: ‘MTKGetGpuBlock’ defined but not used [-Wunused-function]
+ 1068 | static IMG_UINT32 MTKGetGpuBlock(void)
+      |                   ^~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1063:19: warning: ‘MTKGetGpuLoading’ defined but not used [-Wunused-function]
+ 1063 | static IMG_UINT32 MTKGetGpuLoading(void)
+      |                   ^~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1056:21: warning: ‘MTKGetCustomUpBoundGpuFreq’ defined but not used [-Wunused-function]
+ 1056 | static unsigned int MTKGetCustomUpBoundGpuFreq(void)
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1049:21: warning: ‘MTKGetCustomBoostGpuFreq’ defined but not used [-Wunused-function]
+ 1049 | static unsigned int MTKGetCustomBoostGpuFreq(void)
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:1019:13: warning: ‘MTKCustomUpBoundGpuFreq’ defined but not used [-Wunused-function]
+ 1019 | static void MTKCustomUpBoundGpuFreq(unsigned int ui32FreqLevel)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:987:13: warning: ‘MTKCustomBoostGpuFreq’ defined but not used [-Wunused-function]
+  987 | static void MTKCustomBoostGpuFreq(unsigned int ui32FreqLevel)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:982:21: warning: ‘MTKCustomGetGpuFreqLevelCount’ defined but not used [-Wunused-function]
+  982 | static unsigned int MTKCustomGetGpuFreqLevelCount(void)
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:952:13: warning: ‘MTKSetBottomGPUFreq’ defined but not used [-Wunused-function]
+  952 | static void MTKSetBottomGPUFreq(unsigned int ui32FreqLevel)
+      |             ^~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:944:13: warning: ‘MTKBoostGpuFreq’ defined but not used [-Wunused-function]
+  944 | static void MTKBoostGpuFreq(void)
+      |             ^~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:784:13: warning: ‘MTKDVFSTimerFuncCB’ defined but not used [-Wunused-function]
+  784 | static void MTKDVFSTimerFuncCB(void *pvData)
+      |             ^~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:554:13: warning: ‘MTKFreqPowerLimitCB’ defined but not used [-Wunused-function]
+  554 | static void MTKFreqPowerLimitCB(unsigned int ui32LimitFreqID)
+      |             ^~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:499:21: warning: ‘MTKCommitFreqForPVR’ defined but not used [-Wunused-function]
+  499 | static unsigned int MTKCommitFreqForPVR(unsigned long ui32NewFreq)
+      |                     ^~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:242:13: warning: ‘MTKDisableMfgMtcmos0’ defined but not used [-Wunused-function]
+  242 | static void MTKDisableMfgMtcmos0(void)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:223:13: warning: ‘MTKEnableMfgMtcmos0’ defined but not used [-Wunused-function]
+  223 | static void MTKEnableMfgMtcmos0(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:82:17: warning: ‘g_bTimerEnable’ defined but not used [-Wunused-variable]
+   82 | static IMG_BOOL g_bTimerEnable = IMG_FALSE;
+      |                 ^~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:71:17: warning: ‘ghDVFSTimerLock’ defined but not used [-Wunused-variable]
+   71 | static POS_LOCK ghDVFSTimerLock;
+      |                 ^~~~~~~~~~~~~~~
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6761/mtk_mfgsys.c:70:19: warning: ‘g_hDVFSTimer’ defined but not used [-Wunused-variable]
+   70 | static IMG_HANDLE g_hDVFSTimer;
+      |                   ^~~~~~~~~~~~
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mtk_pp.o
+  CC      net/ipv6/seg6.o
+  CC      drivers/gpu/drm/drm_hashtab.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/common/vmm_type_stub.o
+  CC      net/ipv4/tcp_metrics.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/common/env/linux/interrupt_support.o
+  CC      net/ipv6/fib6_notifier.o
+  CC      drivers/gpu/drm/drm_mm.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/system/rogue/common/env/linux/dma_support.o
+  CC      net/ipv6/sysctl_net_ipv6.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rgxtimecorr.o
+  CC      net/ipv4/tcp_fastopen.o
+  CC      drivers/gpu/drm/drm_crtc.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rgxfwdbg.o
+  CC      net/ipv6/ip6mr.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rgxshader.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rgxfwtrace_strings.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxutils.o
+  CC      drivers/gpu/drm/drm_fourcc.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxhwperf.o
+  CC      net/ipv4/tcp_rate.o
+  CC      drivers/gpu/drm/drm_modes.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxfwimageutils.o
+  CC      net/ipv4/tcp_recovery.o
+  CC      net/ipv6/xfrm6_policy.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxfwutils.o
+  CC      net/ipv4/tcp_ulp.o
+  CC      drivers/gpu/drm/drm_edid.o
+  CC      net/ipv6/xfrm6_state.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxmem.o
+  CC      net/ipv6/xfrm6_input.o
+  CC      net/ipv4/tcp_offload.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxccb.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxmmuinit.o
+  CC      net/ipv6/xfrm6_output.o
+  CC      net/ipv4/datagram.o
+  CC      drivers/gpu/drm/drm_info.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxtransfer.o
+  CC      drivers/gpu/drm/drm_encoder_slave.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxbreakpoint.o
+  CC      net/ipv6/xfrm6_protocol.o
+  CC      net/ipv4/raw.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxmipsmmuinit.o
+  CC      drivers/gpu/drm/drm_trace_points.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxinit.o
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxinit.c: In function ‘RGXInitDevPart2’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxinit.c:1346:15: warning: implicit conversion from ‘enum <anonymous>’ to ‘IMG_BOOL’ {aka ‘enum tag_img_bool’} [-Wenum-conversion]
+ 1346 |    bEnableAPM = false;
+      |               ^
+  CC      drivers/gpu/drm/drm_global.o
+  CC      net/ipv6/netfilter.o
+  CC      drivers/gpu/drm/drm_prime.o
+  CC      net/ipv4/udp.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxsignals.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxlayer_impl.o
+  CC      drivers/gpu/drm/drm_rect.o
+  CC      net/ipv6/fib6_rules.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxtdmtransfer.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxbvnc.o
+  CC      drivers/gpu/drm/drm_vma_manager.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxdebug.o
+  CC      net/ipv6/proc.o
+  CC      drivers/gpu/drm/drm_flip_work.o
+  CC      net/ipv6/ah6.o
+  CC      drivers/gpu/drm/drm_modeset_lock.o
+  CC      net/ipv4/udplite.o
+  CC      net/ipv6/esp6.o
+  CC      drivers/gpu/drm/drm_atomic.o
+  CC      net/ipv4/udp_offload.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxta3d.o
+  CC      net/ipv6/ipcomp6.o
+  CC      net/ipv4/arp.o
+  CC      drivers/gpu/drm/drm_bridge.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxkicksync.o
+  CC      net/ipv6/xfrm6_tunnel.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxsrvinit.o
+  CC      drivers/gpu/drm/drm_framebuffer.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxregconfig.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxcompute.o
+  CC      net/ipv6/tunnel6.o
+  CC      net/ipv4/icmp.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxstartstop.o
+  CC      drivers/gpu/drm/drm_connector.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxpower.o
+  CC      net/ipv6/xfrm6_mode_transport.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxsyncutils.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/devices/rogue/rgxmulticore.o
+  CC      drivers/gpu/drm/drm_blend.o
+  CC      net/ipv4/devinet.o
+  CC      net/ipv6/xfrm6_mode_tunnel.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/tlstream.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/pvrsrv_pool.o
+  CC      drivers/gpu/drm/drm_encoder.o
+  CC      net/ipv6/xfrm6_mode_ro.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/cache_km.o
+  CC      net/ipv6/xfrm6_mode_beet.o
+  CC      drivers/gpu/drm/drm_mode_object.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/htbserver.o
+  CC      net/ipv4/af_inet.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/tlintern.o
+  CC      net/ipv6/mip6.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/pvr_notifier.o
+  CC      drivers/gpu/drm/drm_property.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/devicemem_history_server.o
+  CC      net/ipv6/ip6_vti.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/physmem.o
+  CC      drivers/gpu/drm/drm_plane.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/tlserver.o
+  CC      net/ipv4/igmp.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/physheap.o
+  CC      net/ipv6/sit.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/handle.o
+  CC      drivers/gpu/drm/drm_color_mgmt.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/devicemem_heapcfg.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/sync_server.o
+  CC      drivers/gpu/drm/drm_print.o
+  CC      net/ipv6/ip6_tunnel.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/sync_checkpoint.o
+  CC      drivers/gpu/drm/drm_dumb_buffers.o
+  CC      net/ipv4/fib_frontend.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/lists.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/info_page_km.o
+  CC      drivers/gpu/drm/drm_mode_config.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/physmem_lma.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/process_stats.o
+  CC      net/ipv6/addrconf_core.o
+  CC      drivers/gpu/drm/drm_vblank.o
+  CC      net/ipv4/fib_semantics.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/connection_server.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/pmr.o
+  CC      net/ipv6/exthdrs_core.o
+  CC      drivers/gpu/drm/drm_syncobj.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/pvrsrv_bridge_init.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/mmu_common.o
+  CC      net/ipv4/fib_trie.o
+  CC      net/ipv6/ip6_checksum.o
+  CC      drivers/gpu/drm/drm_lease.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/devicemem_server.o
+  CC      net/ipv6/ip6_icmp.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/power.o
+  CC      drivers/gpu/drm/drm_writeback.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/physmem_hostmem.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/pvrsrv.o
+  CC      net/ipv4/fib_notifier.o
+  CC      net/ipv6/output_core.o
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/pvrsrv.c: In function ‘PVRSRVCommonDeviceDestroy’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/pvrsrv.c:2458:34: warning: implicit conversion from ‘enum tag_img_bool’ to ‘POLL_FLAGS’ {aka ‘enum _POLL_FLAGS_’} [-Wenum-conversion]
+ 2458 |                                  IMG_TRUE);
+      |                                  ^~~~~~~~
+  CC      drivers/gpu/drm/drm_client.o
+  CC      net/ipv4/inet_fragment.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/srvcore.o
+  CC      drivers/gpu/drm/drm_ioc32.o
+  CC      net/ipv6/protocol.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/vz_vmm_pvz.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/vz_vmm_vm.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/vmm_pvz_client.o
+  CC      net/ipv4/ping.o
+  CC      net/ipv6/ip6_offload.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/vmm_pvz_server.o
+  CC      drivers/gpu/drm/drm_gem_cma_helper.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/htb_debug.o
+  CC      net/ipv6/tcpv6_offload.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/common/di_server.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/km_apphint.o
+  CC      drivers/gpu/drm/drm_panel.o
+  CC      net/ipv4/ip_tunnel_core.o
+  CC      net/ipv6/exthdrs_offload.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/osmmap_stub.o
+  CC      drivers/gpu/drm/drm_of.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/physmem_test.o
+  CC      net/ipv6/inet6_hashtables.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/allocmem.o
+  CC      drivers/gpu/drm/drm_mipi_dsi.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_bridge_k.o
+  CC      net/ipv4/gre_offload.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/physmem_dmabuf.o
+  CC      net/ipv6/ip6_udp_tunnel.o
+  CC      drivers/gpu/drm/drm_panel_orientation_quirks.o
+  CC      net/ipv4/metrics.o
+  AR      drivers/gpu/drm/built-in.a
+  CC      drivers/gpu/trace/trace_gpu_mem.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_debugfs.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/osconnection_server.o
+  CC      net/ipv6/mcast_snoop.o
+  AR      drivers/gpu/trace/built-in.a
+  AR      drivers/gpu/vga/built-in.a
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/handle_idr.o
+  CC      net/ipv4/netlink.o
+  HOSTCC  lib/gen_crc32table
+  CC      lib/fonts/fonts.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/event.o
+  CC      lib/fonts/font_8x16.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/fwload.o
+  AR      lib/fonts/built-in.a
+  CC      lib/lz4/lz4_compress.o
+  CC      net/ipv4/ip_tunnel.o
+  AR      net/ipv6/built-in.a
+  CC      drivers/gpu/mediatek/gpufreq/mt6761/mtk_gpufreq_core.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/pmr_os.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/module_common.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/physmem_osmem_linux.o
+  AR      drivers/gpu/mediatek/gpufreq/mt6761/built-in.a
+  AR      drivers/gpu/mediatek/gpufreq/built-in.a
+  CC      drivers/hid/usbhid/hid-core.o
+  CC      net/ipv4/sysctl_net_ipv4.o
+  CC      lib/lz4/lz4_decompress.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/osfunc.o
+  CC      net/ipv4/proc.o
+  CC      drivers/hid/usbhid/hiddev.o
+  CC      net/ipv4/fib_rules.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_gputrace.o
+  AR      lib/lz4/built-in.a
+  CC      lib/lzo/lzo1x_compress.o
+  AR      drivers/hid/usbhid/built-in.a
+  CC      drivers/hid/hid-core.o
+  CC      lib/lzo/lzo1x_decompress_safe.o
+  AR      lib/lzo/built-in.a
+  CC      lib/mpi/generic_mpih-lshift.o
+  CC      net/ipv4/ipmr.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_debug.o
+  CC      lib/mpi/generic_mpih-mul1.o
+  CC      lib/mpi/generic_mpih-mul2.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_procfs.o
+  CC      drivers/hid/hid-input.o
+  CC      lib/mpi/generic_mpih-mul3.o
+  CC      lib/mpi/generic_mpih-rshift.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_ion_stats.o
+  CC      lib/mpi/generic_mpih-sub1.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/devices/rogue/rgx_hwperf_table.o
+  CC      lib/mpi/generic_mpih-add1.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/devicemem_utils.o
+  CC      lib/mpi/mpicoder.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/hash.o
+  CC      lib/mpi/mpi-bit.o
+  CC      net/ipv4/ipmr_base.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/ra.o
+  CC      lib/mpi/mpi-cmp.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/sync.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/uniq_key_splay_tree.o
+  CC      lib/mpi/mpih-cmp.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/tlclient.o
+  CC      lib/mpi/mpih-div.o
+  CC      net/ipv4/ipip.o
+  CC      drivers/hid/hid-quirks.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/devicemem.o
+  CC      lib/mpi/mpih-mul.o
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/devicemem.c: In function ‘DevmemCreateHeap’:
+../drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/devicemem.c:1035:21: warning: implicit conversion from ‘enum <anonymous>’ to ‘IMG_BOOL’ {aka ‘enum tag_img_bool’} [-Wenum-conversion]
+ 1035 |  psHeap->bPremapped = false;
+      |                     ^
+  CC      drivers/hid/hidraw.o
+  CC      lib/mpi/mpi-pow.o
+  CC      net/ipv4/gre_demux.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/htbuffer.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/mem_utils.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/shared/common/pvrsrv_error.o
+  CC      lib/mpi/mpiutil.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/kernel/drivers/staging/imgtec/pvr_drm.o
+  CC      drivers/hid/uhid.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/kernel/drivers/staging/imgtec/pvr_platform_drv.o
+  AR      lib/mpi/built-in.a
+  CC      lib/reed_solomon/reed_solomon.o
+  CC      net/ipv4/udp_tunnel.o
+  CC      drivers/hid/hid-generic.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/kernel/drivers/staging/imgtec/pvr_sync_file.o
+  CC      drivers/hid/hid-apple.o
+  AR      lib/reed_solomon/built-in.a
+  CC      lib/xz/xz_dec_syms.o
+  CC      drivers/hid/hid-elecom.o
+  CC      lib/xz/xz_dec_stream.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/kernel/drivers/staging/imgtec/pvr_counting_timeline.o
+  CC      net/ipv4/ip_vti.o
+  CC      drivers/hid/hid-magicmouse.o
+  CC      lib/xz/xz_dec_lzma2.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/kernel/drivers/staging/imgtec/pvr_sw_fence.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/kernel/drivers/staging/imgtec/pvr_fence.o
+  CC      drivers/hid/hid-microsoft.o
+  CC      lib/xz/xz_dec_bcj.o
+  CC      net/ipv4/ah4.o
+  CC      drivers/hid/hid-multitouch.o
+  AR      lib/xz/built-in.a
+  CC      lib/zlib_deflate/deflate.o
+  CC      lib/zlib_deflate/deftree.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/osfunc_arm64.o
+  CC      net/ipv4/esp4.o
+  CC      drivers/hid/hid-nintendo.o
+  CC      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/services/server/env/linux/trace_events.o
+  CC      lib/zlib_deflate/deflate_syms.o
+  CC      drivers/hid/hid-sony.o
+  AR      drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728/built-in.a
+  AR      lib/zlib_deflate/built-in.a
+  AR      drivers/gpu/mediatek/gpu_rgx/built-in.a
+  CC      lib/zlib_inflate/inffast.o
+  CC      drivers/gpu/mediatek/hal/mtk_gpu_utility.o
+  CC      lib/zlib_inflate/inflate.o
+  AR      drivers/gpu/mediatek/hal/built-in.a
+  AR      drivers/gpu/mediatek/built-in.a
+  AR      drivers/gpu/built-in.a
+  CC      lib/zlib_inflate/infutil.o
+  AR      virt/lib/built-in.a
+  AR      virt/built-in.a
+  CC      net/ipv4/ipcomp.o
+  CC      lib/zlib_inflate/inftrees.o
+  CC      net/key/af_key.o
+  AR      drivers/hid/built-in.a
+  CC      drivers/hwspinlock/hwspinlock_core.o
+  CC      lib/zlib_inflate/inflate_syms.o
+  AR      lib/zlib_inflate/built-in.a
+  CC      lib/zstd/fse_compress.o
+  CC      net/ipv4/xfrm4_tunnel.o
+  AR      drivers/hwspinlock/built-in.a
+  CC      drivers/hwtracing/coresight/coresight.o
+  CC      lib/zstd/huf_compress.o
+  CC      net/ipv4/xfrm4_mode_beet.o
+  CC      lib/zstd/compress.o
+  CC      drivers/hwtracing/coresight/coresight-etm-perf.o
+  AR      net/key/built-in.a
+  CC      net/l2tp/l2tp_core.o
+  CC      net/ipv4/tunnel4.o
+  CC      drivers/hwtracing/coresight/of_coresight.o
+  CC      drivers/hwtracing/coresight/coresight-funnel.o
+  CC      net/ipv4/xfrm4_mode_transport.o
+  CC      drivers/hwtracing/coresight/coresight-replicator.o
+  CC      net/l2tp/l2tp_ppp.o
+  CC      net/ipv4/xfrm4_mode_tunnel.o
+  CC      drivers/hwtracing/coresight/coresight-stm.o
+  CC      net/ipv4/ipconfig.o
+  AR      drivers/hwtracing/coresight/built-in.a
+  AR      drivers/hwtracing/intel_th/built-in.a
+  CC      drivers/hwtracing/stm/core.o
+  AR      net/l2tp/built-in.a
+  GEN     lib/oid_registry_data.c
+  CC      lib/zstd/entropy_common.o
+  CC      drivers/hwtracing/stm/policy.o
+  CC      net/ipv4/netfilter.o
+  AR      drivers/hwtracing/stm/built-in.a
+  CC      drivers/i2c/algos/i2c-algo-bit.o
+  CC      lib/lockref.o
+  CC      drivers/i2c/busses/i2c-mtk.o
+  AR      drivers/i2c/algos/built-in.a
+  AR      drivers/i2c/muxes/built-in.a
+  CC      lib/zstd/fse_decompress.o
+  CC      drivers/i2c/i2c-boardinfo.o
+  CC      net/ipv4/inet_diag.o
+  AR      drivers/i3c/built-in.a
+  CC      net/ipv4/tcp_diag.o
+  CC      net/llc/llc_core.o
+  AR      drivers/i2c/busses/built-in.a
+  CC      drivers/i2c/i2c-core-base.o
+  CC      net/ipv4/udp_diag.o
+  CC      net/llc/llc_input.o
+  CC      net/ipv4/tcp_bic.o
+  CC      net/llc/llc_output.o
+  CC      net/ipv4/tcp_cubic.o
+  CC      drivers/i2c/i2c-core-smbus.o
+  AR      net/llc/built-in.a
+  CC      lib/bcd.o
+  CC      lib/zstd/zstd_common.o
+  CC      net/ipv4/xfrm4_policy.o
+  AR      drivers/idle/built-in.a
+  CC      net/ipv4/xfrm4_state.o
+  CC      lib/zstd/huf_decompress.o
+  CC      drivers/i2c/i2c-core-of.o
+  CC      lib/div64.o
+  CC      net/ipv4/xfrm4_input.o
+  CC      lib/sort.o
+  CC      net/mac80211/main.o
+  CC      drivers/i2c/i2c-mux.o
+  CC      lib/zstd/decompress.o
+  AR      drivers/i2c/built-in.a
+  AR      drivers/iio/accel/built-in.a
+  CC      drivers/iio/adc/mt635x-auxadc.o
+  CC      net/ipv4/xfrm4_output.o
+  CC      drivers/iio/adc/mt6577_auxadc.o
+  AR      drivers/iio/adc/built-in.a
+  AR      drivers/iio/afe/built-in.a
+  AR      drivers/iio/amplifiers/built-in.a
+  AR      drivers/iio/buffer/built-in.a
+  AR      drivers/iio/chemical/built-in.a
+  AR      drivers/iio/common/cros_ec_sensors/built-in.a
+  AR      drivers/iio/common/hid-sensors/built-in.a
+  AR      drivers/iio/common/ms_sensors/built-in.a
+  CC      net/ipv4/xfrm4_protocol.o
+  AR      drivers/iio/common/ssp_sensors/built-in.a
+  AR      drivers/iio/common/st_sensors/built-in.a
+  AR      drivers/iio/common/built-in.a
+  AR      drivers/iio/counter/built-in.a
+  AR      drivers/iio/dac/built-in.a
+  AR      drivers/iio/dummy/built-in.a
+  AR      drivers/iio/frequency/built-in.a
+  AR      drivers/iio/gyro/built-in.a
+  AR      drivers/iio/health/built-in.a
+  AR      drivers/iio/humidity/built-in.a
+  AR      drivers/iio/imu/bmi160/built-in.a
+  AR      drivers/iio/imu/inv_mpu6050/built-in.a
+  AR      drivers/iio/imu/st_lsm6dsx/built-in.a
+  AR      drivers/iio/imu/built-in.a
+  AR      drivers/iio/light/built-in.a
+  AR      drivers/iio/magnetometer/built-in.a
+  AR      drivers/iio/multiplexer/built-in.a
+  AR      drivers/iio/orientation/built-in.a
+  AR      drivers/iio/potentiometer/built-in.a
+  AR      drivers/iio/potentiostat/built-in.a
+  AR      drivers/iio/pressure/built-in.a
+  AR      drivers/iio/proximity/built-in.a
+  CC      net/mac80211/status.o
+  AR      drivers/iio/resolver/built-in.a
+  AR      drivers/iio/temperature/built-in.a
+  AR      drivers/iio/trigger/built-in.a
+  CC      drivers/iio/industrialio-core.o
+  AR      lib/zstd/built-in.a
+  CC      lib/parser.o
+  CC      lib/debug_locks.o
+  CC      lib/random32.o
+  AR      net/ipv4/built-in.a
+  CC      drivers/input/joystick/xpad.o
+  CC      drivers/iio/industrialio-event.o
+  CC      lib/bust_spinlocks.o
+  CC      lib/kasprintf.o
+  AR      drivers/input/joystick/built-in.a
+  CC      drivers/input/keyboard/atkbd.o
+  CC      lib/bitmap.o
+  CC      net/mac80211/driver-ops.o
+  CC      drivers/iio/inkern.o
+  CC      drivers/input/keyboard/mtk-kpd.o
+  AR      drivers/iio/built-in.a
+  CC      lib/scatterlist.o
+  CC      net/netfilter/core.o
+  CC      drivers/input/keyboard/mtk-pmic-keys.o
+  CC      net/mac80211/sta_info.o
+  AR      drivers/input/keyboard/built-in.a
+  CC      drivers/input/misc/uinput.o
+  CC      lib/gcd.o
+  CC      lib/lcm.o
+  CC      lib/list_sort.o
+  CC      net/netfilter/nf_log.o
+  CC      lib/uuid.o
+  AR      drivers/input/misc/built-in.a
+  CC      drivers/input/touchscreen/GT1151/gt1x_generic.o
+  CC      lib/flex_array.o
+  CC      lib/iov_iter.o
+  CC      net/netfilter/nf_queue.o
+  CC      drivers/input/touchscreen/GT1151/gt1x_tpd.o
+  CC      drivers/input/touchscreen/GT1151/gt1x_update.o
+  CC      net/mac80211/wep.o
+  CC      net/netfilter/nf_sockopt.o
+  CC      lib/clz_ctz.o
+  CC      lib/bsearch.o
+  CC      drivers/input/touchscreen/GT1151/tpd_control.o
+  CC      net/mac80211/aead_api.o
+  CC      lib/find_bit.o
+  CC      net/netfilter/utils.o
+  CC      lib/llist.o
+  CC      lib/memweight.o
+  CC      net/mac80211/wpa.o
+  CC      lib/kfifo.o
+  CC      drivers/input/touchscreen/GT1151/tpd_button.o
+  CC      drivers/input/touchscreen/GT1151/tpd_debug.o
+  CC      net/netfilter/nfnetlink.o
+  CC      lib/percpu-refcount.o
+  CC      net/mac80211/scan.o
+  CC      lib/rhashtable.o
+  CC      drivers/input/touchscreen/GT1151/tpd_default.o
+  CC      drivers/input/touchscreen/GT1151/tpd_misc.o
+  CC      net/netfilter/nfnetlink_queue.o
+  CC      drivers/input/touchscreen/GT1151/tpd_setting.o
+  CC      lib/reciprocal_div.o
+  AR      drivers/input/touchscreen/GT1151/built-in.a
+  CC      drivers/input/touchscreen/of_touchscreen.o
+  CC      lib/once.o
+  CC      lib/refcount.o
+  AR      drivers/input/touchscreen/built-in.a
+  CC      drivers/input/input.o
+  CC      lib/usercopy.o
+  CC      net/netfilter/nfnetlink_log.o
+  CC      lib/errseq.o
+  CC      net/mac80211/offchannel.o
+  CC      lib/bucket_locks.o
+  CC      lib/string_helpers.o
+  CC      net/netfilter/nf_conntrack_core.o
+  CC      drivers/input/input-compat.o
+  CC      lib/hexdump.o
+  CC      lib/kstrtox.o
+  CC      drivers/input/input-mt.o
+  CC      lib/pci_iomap.o
+  CC      net/mac80211/ht.o
+  CC      drivers/input/ff-core.o
+  CC      lib/iomap_copy.o
+  CC      lib/devres.o
+  CC      drivers/input/ff-memless.o
+  CC      net/netfilter/nf_conntrack_standalone.o
+  CC      lib/logic_pio.o
+  CC      drivers/input/input-leds.o
+  CC      lib/hweight.o
+  CC      lib/assoc_array.o
+  CC      net/mac80211/agg-tx.o
+  CC      drivers/input/evdev.o
+  CC      lib/list_debug.o
+  CC      net/netfilter/nf_conntrack_expect.o
+  CC      lib/bitrev.o
+  CC      lib/rational.o
+  CC      lib/crc-ccitt.o
+  AR      drivers/input/built-in.a
+  CC      lib/crc16.o
+  CC      drivers/input/serio/serio.o
+  CC      lib/libcrc32c.o
+  CC      net/mac80211/agg-rx.o
+  CC      lib/crc8.o
+  CC      drivers/input/serio/serport.o
+  CC      net/netfilter/nf_conntrack_helper.o
+  CC      lib/xxhash.o
+  CC      drivers/input/serio/libps2.o
+  CC      lib/genalloc.o
+  AR      drivers/input/serio/built-in.a
+  CC      drivers/iommu/iommu.o
+  CC      net/netfilter/nf_conntrack_proto.o
+  CC      lib/textsearch.o
+  CC      net/mac80211/vht.o
+  CC      lib/ts_kmp.o
+  CC      lib/ts_bm.o
+  CC      lib/ts_fsm.o
+  CC      drivers/iommu/iommu-traces.o
+  CC      lib/percpu_counter.o
+  CC      net/netfilter/nf_conntrack_proto_generic.o
+  CC      lib/audit.o
+  CC      net/mac80211/he.o
+  CC      lib/compat_audit.o
+  CC      drivers/iommu/iommu-sysfs.o
+  CC      lib/syscall.o
+  CC      net/netfilter/nf_conntrack_proto_tcp.o
+  CC      lib/dynamic_debug.o
+  CC      net/mac80211/ibss.o
+  CC      drivers/iommu/dma-iommu.o
+  CC      lib/nlattr.o
+  CC      drivers/iommu/iova.o
+  CC      net/netfilter/nf_conntrack_proto_udp.o
+  CC      net/mac80211/iface.o
+  CC      lib/checksum.o
+  CC      drivers/iommu/of_iommu.o
+  CC      lib/cpu_rmap.o
+  CC      net/netfilter/nf_conntrack_proto_icmp.o
+  CC      lib/dynamic_queue_limits.o
+  AR      drivers/iommu/built-in.a
+  CC      drivers/irqchip/irqchip.o
+  CC      lib/glob.o
+  CC      drivers/irqchip/irq-gic.o
+  CC      net/netfilter/nf_conntrack_extend.o
+  CC      net/mac80211/rate.o
+  CC      lib/strncpy_from_user.o
+  CC      drivers/irqchip/irq-gic-common.o
+  CC      lib/strnlen_user.o
+  CC      drivers/irqchip/irq-gic-v3.o
+  CC      net/netfilter/nf_conntrack_acct.o
+  CC      lib/net_utils.o
+  CC      drivers/irqchip/irq-gic-v3-mbi.o
+  CC      lib/sg_pool.o
+  CC      net/mac80211/michael.o
+  CC      net/netfilter/nf_conntrack_seqadj.o
+  CC      drivers/irqchip/irq-gic-v3-its.o
+  CC      lib/asn1_decoder.o
+  CC      net/mac80211/tkip.o
+  CC      lib/oid_registry.o
+  CC      lib/sbitmap.o
+  CC      net/netfilter/nf_conntrack_proto_icmpv6.o
+  CC      lib/argv_split.o
+  CC      net/netfilter/nf_conntrack_ecache.o
+  CC      net/mac80211/aes_cmac.o
+  CC      drivers/irqchip/irq-gic-v3-its-platform-msi.o
+  CC      lib/bug.o
+  CC      drivers/irqchip/irq-gic-v4.o
+  CC      lib/chacha.o
+  CC      drivers/irqchip/irq-partition-percpu.o
+  CC      net/mac80211/aes_gmac.o
+  CC      lib/clz_tab.o
+  CC      lib/cmdline.o
+  CC      lib/cpumask.o
+  CC      drivers/irqchip/irq-mtk-sysirq.o
+  CC      net/netfilter/nf_conntrack_proto_dccp.o
+  CC      lib/ctype.o
+  CC      net/mac80211/fils_aead.o
+  CC      lib/dec_and_lock.o
+  CC      drivers/irqchip/irq-mtk-cirq.o
+  CC      lib/decompress.o
+  CC      lib/decompress_inflate.o
+  AR      drivers/irqchip/built-in.a
+  AR      drivers/leds/trigger/built-in.a
+  CC      drivers/leds/led-core.o
+  CC      lib/decompress_unlz4.o
+  CC      lib/dump_stack.o
+  CC      net/mac80211/cfg.o
+  CC      drivers/leds/led-class.o
+  CC      net/netfilter/nf_conntrack_proto_sctp.o
+  CC      lib/earlycpio.o
+  CC      lib/extable.o
+  CC      drivers/leds/led-triggers.o
+  CC      lib/fdt.o
+  CC      lib/fdt_empty_tree.o
+  CC      drivers/leds/regulator-vibrator.o
+  CC      lib/fdt_ro.o
+  AR      drivers/leds/built-in.a
+  AR      drivers/macintosh/built-in.a
+  CC      drivers/mailbox/mailbox.o
+  CC      net/netfilter/nf_conntrack_proto_gre.o
+  CC      lib/fdt_rw.o
+  CC      lib/fdt_strerror.o
+  CC      lib/fdt_sw.o
+  CC      drivers/mailbox/mtk-cmdq-mailbox.o
+  CC      lib/fdt_wip.o
+  CC      lib/flex_proportions.o
+In file included from ../include/linux/printk.h:7,
+                 from ../include/linux/kernel.h:13,
+                 from ../include/linux/clk.h:16,
+                 from ../drivers/mailbox/mtk-cmdq-mailbox.c:7:
+../drivers/mailbox/mtk-cmdq-mailbox.c: In function ‘cmdq_thread_dump’:
+../include/linux/kern_levels.h:5:18: warning: format ‘%lx’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘struct cmdq *’ [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:369:9: note: in expansion of macro ‘KERN_NOTICE’
+  369 |  printk(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~~~~
+../include/linux/mailbox/mtk-cmdq-mailbox.h:173:2: note: in expansion of macro ‘pr_notice’
+  173 |  pr_notice("[cmdq][err] "fmt" @%s,%u\n", ##args, __func__, __LINE__)
+      |  ^~~~~~~~~
+../drivers/mailbox/mtk-cmdq-mailbox.c:1158:3: note: in expansion of macro ‘cmdq_err’
+ 1158 |   cmdq_err("%s gce off cmdq:%lx thread:%u",
+      |   ^~~~~~~~
+  CC      lib/idr.o
+  CC      net/netfilter/nf_conntrack_netlink.o
+  CC      lib/int_sqrt.o
+  CC      lib/ioremap.o
+  CC      net/mac80211/ethtool.o
+  AR      drivers/mailbox/built-in.a
+  CC      drivers/md/dm-uevent.o
+  CC      lib/irq_regs.o
+  CC      lib/is_single_threaded.o
+  CC      lib/klist.o
+  CC      net/mac80211/rx.o
+  CC      drivers/md/dm.o
+  CC      lib/kobject.o
+  CC      net/netfilter/nf_conntrack_amanda.o
+  CC      lib/kobject_uevent.o
+  CC      net/netfilter/nf_conntrack_ftp.o
+  CC      drivers/md/dm-table.o
+  CC      lib/nmi_backtrace.o
+  CC      lib/nodemask.o
+  CC      lib/plist.o
+  CC      net/netfilter/nf_conntrack_h323_main.o
+  CC      lib/radix-tree.o
+  CC      net/mac80211/spectmgmt.o
+  CC      drivers/md/dm-target.o
+  CC      lib/ratelimit.o
+  CC      lib/rbtree.o
+  CC      net/mac80211/tx.o
+  CC      drivers/md/dm-linear.o
+  CC      net/netfilter/nf_conntrack_h323_asn1.o
+  CC      lib/seq_buf.o
+  CC      drivers/md/dm-stripe.o
+  CC      net/netfilter/nf_conntrack_irc.o
+  CC      lib/sha1.o
+  CC      lib/show_mem.o
+  CC      drivers/md/dm-ioctl.o
+  CC      lib/siphash.o
+  CC      net/netfilter/nf_conntrack_broadcast.o
+  CC      lib/string.o
+  CC      drivers/md/dm-io.o
+  CC      lib/timerqueue.o
+  CC      lib/vsprintf.o
+  CC      net/netfilter/nf_conntrack_netbios_ns.o
+  CC      drivers/md/dm-kcopyd.o
+  CC      net/mac80211/key.o
+  CC      net/netfilter/nf_conntrack_pptp.o
+  CC      drivers/md/dm-sysfs.o
+  CC      drivers/md/dm-stats.o
+  CC      lib/win_minmax.o
+  CC      net/netfilter/nf_conntrack_sane.o
+  GEN     lib/crc32table.h
+  AR      lib/lib.a
+  CC      lib/crc32.o
+  CC      net/mac80211/util.o
+  CC      net/netfilter/nf_conntrack_tftp.o
+  CC      drivers/md/dm-rq.o
+  EXPORTS lib/lib-ksyms.o
+  AR      lib/built-in.a
+  CC      net/netlink/af_netlink.o
+  CC      net/netfilter/nf_nat_core.o
+  CC      drivers/md/dm-builtin.o
+  CC      drivers/md/dm-bufio.o
+  CC      net/netfilter/nf_nat_proto_unknown.o
+  CC      net/netlink/genetlink.o
+  CC      drivers/md/dm-crypt.o
+  CC      net/netfilter/nf_nat_proto_common.o
+  CC      net/mac80211/wme.o
+  CC      net/mac80211/chan.o
+  CC      net/netfilter/nf_nat_proto_udp.o
+  AR      net/netlink/built-in.a
+  CC      net/packet/af_packet.o
+  CC      net/netfilter/nf_nat_proto_tcp.o
+  CC      drivers/md/dm-default-key.o
+  CC      drivers/md/dm-snap.o
+  CC      net/netfilter/nf_nat_helper.o
+  CC      net/mac80211/trace.o
+  CC      net/netfilter/nf_nat_proto_dccp.o
+  CC      drivers/md/dm-exception-store.o
+  CC      net/netfilter/nf_nat_proto_sctp.o
+  AR      net/packet/built-in.a
+  CC      net/rfkill/core.o
+  CC      drivers/md/dm-snap-transient.o
+  CC      net/netfilter/nf_nat_redirect.o
+  CC      drivers/md/dm-snap-persistent.o
+  AR      net/rfkill/built-in.a
+  AR      drivers/media/common/b2c2/built-in.a
+  AR      drivers/media/common/saa7146/built-in.a
+  AR      drivers/media/common/siano/built-in.a
+  AR      drivers/media/common/v4l2-tpg/built-in.a
+  CC      drivers/media/common/videobuf2/videobuf2-core.o
+  CC      drivers/md/dm-verity-avb.o
+  CC      net/netfilter/nf_nat_amanda.o
+  CC      drivers/md/dm-verity-fec.o
+  CC      net/netfilter/nf_nat_ftp.o
+  CC      drivers/md/dm-verity-target.o
+  CC      drivers/media/common/videobuf2/vb2-trace.o
+  CC      net/netfilter/nf_nat_irc.o
+  CC      drivers/md/dm-bow.o
+  CC      drivers/media/common/videobuf2/videobuf2-v4l2.o
+  CC      net/netfilter/nf_nat_tftp.o
+  AR      drivers/md/built-in.a
+  AR      drivers/media/firewire/built-in.a
+  CC      net/mac80211/mlme.o
+  CC      net/netfilter/nf_conncount.o
+  CC      drivers/media/common/videobuf2/videobuf2-memops.o
+  CC      net/sched/sch_generic.o
+  CC      drivers/media/common/videobuf2/videobuf2-vmalloc.o
+  CC      net/netfilter/x_tables.o
+  AR      drivers/media/common/videobuf2/built-in.a
+  AR      drivers/media/common/built-in.a
+  AR      drivers/media/i2c/soc_camera/built-in.a
+  AR      drivers/media/i2c/built-in.a
+  AR      drivers/media/mmc/siano/built-in.a
+  AR      drivers/media/mmc/built-in.a
+  AR      drivers/media/pci/b2c2/built-in.a
+  AR      drivers/media/pci/ddbridge/built-in.a
+  AR      drivers/media/pci/dm1105/built-in.a
+  AR      drivers/media/pci/intel/ipu3/built-in.a
+  AR      drivers/media/pci/intel/built-in.a
+  AR      drivers/media/pci/mantis/built-in.a
+  AR      drivers/media/pci/netup_unidvb/built-in.a
+  AR      drivers/media/pci/ngene/built-in.a
+  AR      drivers/media/pci/pluto2/built-in.a
+  AR      drivers/media/pci/pt1/built-in.a
+  AR      drivers/media/pci/pt3/built-in.a
+  AR      drivers/media/pci/saa7146/built-in.a
+  AR      drivers/media/pci/smipcie/built-in.a
+  AR      drivers/media/pci/ttpci/built-in.a
+  AR      drivers/media/pci/built-in.a
+  AR      drivers/media/platform/cros-ec-cec/built-in.a
+  AR      drivers/media/platform/davinci/built-in.a
+  AR      drivers/media/platform/meson/built-in.a
+  AR      drivers/media/platform/omap/built-in.a
+  AR      drivers/media/platform/stm32/built-in.a
+  AR      drivers/media/platform/built-in.a
+  AR      drivers/media/radio/built-in.a
+  AR      drivers/media/rc/keymaps/built-in.a
+  AR      drivers/media/rc/built-in.a
+  AR      drivers/media/spi/built-in.a
+  AR      drivers/media/tuners/built-in.a
+  AR      drivers/media/usb/b2c2/built-in.a
+  AR      drivers/media/usb/dvb-usb/built-in.a
+  AR      drivers/media/usb/dvb-usb-v2/built-in.a
+  AR      drivers/media/usb/s2255/built-in.a
+  AR      drivers/media/usb/siano/built-in.a
+  AR      drivers/media/usb/stkwebcam/built-in.a
+  AR      drivers/media/usb/ttusb-budget/built-in.a
+  AR      drivers/media/usb/ttusb-dec/built-in.a
+  AR      drivers/media/usb/zr364xx/built-in.a
+  AR      drivers/media/usb/built-in.a
+  CC      drivers/media/v4l2-core/v4l2-dev.o
+  CC      net/sched/sch_mq.o
+  CC      net/sched/sch_api.o
+  CC      net/netfilter/xt_tcpudp.o
+  CC      drivers/media/v4l2-core/v4l2-ioctl.o
+  CC      net/mac80211/tdls.o
+  CC      net/netfilter/xt_mark.o
+  CC      net/netfilter/xt_connmark.o
+  CC      net/sched/sch_blackhole.o
+  CC      net/netfilter/xt_nat.o
+  CC      drivers/media/v4l2-core/v4l2-device.o
+  CC      net/sched/cls_api.o
+  CC      net/netfilter/xt_CLASSIFY.o
+  CC      drivers/media/v4l2-core/v4l2-fh.o
+  CC      net/mac80211/ocb.o
+  CC      net/netfilter/xt_CONNSECMARK.o
+  CC      drivers/media/v4l2-core/v4l2-event.o
+  CC      net/netfilter/xt_CT.o
+  CC      net/mac80211/pm.o
+  CC      drivers/media/v4l2-core/v4l2-ctrls.o
+  CC      net/sched/act_api.o
+  CC      net/netfilter/xt_HL.o
+  CC      net/netfilter/xt_NETMAP.o
+  AR      net/mac80211/built-in.a
+  CC      net/sched/act_police.o
+  CC      net/netfilter/xt_NFLOG.o
+  CC      drivers/memory/mediatek/dramc.o
+  CC      net/sched/act_mirred.o
+  CC      net/netfilter/xt_NFQUEUE.o
+  CC      drivers/media/v4l2-core/v4l2-subdev.o
+  CC      drivers/memory/mediatek/dramc_bin.o
+  CC      net/netfilter/xt_REDIRECT.o
+  CC      net/sched/act_ipt.o
+  CC      drivers/memory/mediatek/emicen.o
+  CC      drivers/media/v4l2-core/v4l2-clk.o
+  CC      drivers/memory/mediatek/emimpu.o
+  CC      net/netfilter/xt_SECMARK.o
+  CC      net/sched/sch_fifo.o
+  CC      drivers/media/v4l2-core/v4l2-async.o
+  CC      net/netfilter/xt_TPROXY.o
+  CC      drivers/memory/mediatek/emiisu.o
+  CC      net/sched/sch_htb.o
+  CC      drivers/media/v4l2-core/v4l2-compat-ioctl32.o
+  AR      drivers/memory/mediatek/built-in.a
+  CC      drivers/memory/mtk-smi.o
+  CC      net/netfilter/xt_TCPMSS.o
+  AR      drivers/memory/built-in.a
+  CC      drivers/mfd/act8945a.o
+  CC      net/netfilter/xt_TRACE.o
+  CC      drivers/mfd/mfd-core.o
+  CC      net/sched/sch_ingress.o
+  CC      net/netfilter/xt_IDLETIMER.o
+  CC      drivers/mfd/syscon.o
+  CC      net/sched/cls_u32.o
+  CC      drivers/mfd/mt6397-core.o
+  CC      net/netfilter/xt_bpf.o
+  CC      drivers/mfd/mt6397-irq.o
+  CC      net/sched/cls_fw.o
+  CC      net/netfilter/xt_comment.o
+  CC      drivers/mfd/mt6358-irq.o
+In file included from ../include/linux/node.h:18,
+                 from ../include/linux/cpu.h:17,
+                 from ../include/linux/of_device.h:5,
+                 from ../drivers/mfd/mt6358-irq.c:15:
+../drivers/mfd/mt6358-irq.c: In function ‘mt6358_irq_sp_handler’:
+../drivers/mfd/mt6358-irq.c:187:5: warning: format ‘%s’ expects argument of type ‘char *’, but argument 5 has type ‘struct irq_name_t’ [-Wformat=]
+  187 |     "Reg[0x%x]=0x%x,name=%s,hwirq=%d,type=%d\n",
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/linux/device.h:1451:22: note: in definition of macro ‘dev_fmt’
+ 1451 | #define dev_fmt(fmt) fmt
+      |                      ^~~
+../drivers/mfd/mt6358-irq.c:186:4: note: in expansion of macro ‘dev_info’
+  186 |    dev_info(chip->dev,
+      |    ^~~~~~~~
+../drivers/mfd/mt6358-irq.c:187:27: note: format string is defined here
+  187 |     "Reg[0x%x]=0x%x,name=%s,hwirq=%d,type=%d\n",
+      |                          ~^
+      |                           |
+      |                           char *
+  CC      net/netfilter/xt_connbytes.o
+  CC      drivers/mfd/mt6358-ipi.o
+  CC      net/sched/cls_flow.o
+  CC      drivers/mfd/mt63xx-oc-debug.o
+  CC      net/netfilter/xt_connlimit.o
+  AR      drivers/mfd/built-in.a
+  AR      drivers/misc/cb710/built-in.a
+  AR      drivers/misc/eeprom/built-in.a
+  AR      drivers/misc/lis3lv02d/built-in.a
+  CC      drivers/misc/mediatek/aee/aed/aed-main.o
+  CC      net/sched/cls_bpf.o
+  CC      net/netfilter/xt_conntrack.o
+  CC      net/netfilter/xt_ecn.o
+  CC      net/sched/ematch.o
+  CC      drivers/misc/mediatek/aee/aed/aed-debug.o
+  CC      drivers/media/v4l2-core/v4l2-trace.o
+  CC      net/netfilter/xt_esp.o
+  CC      drivers/misc/mediatek/aee/aed/aee-common.o
+  CC      net/sched/em_u32.o
+  CC      net/netfilter/xt_hashlimit.o
+  CC      drivers/media/v4l2-core/v4l2-mc.o
+  CC      drivers/misc/mediatek/aee/aed/reboot-reason.o
+  AR      net/sched/built-in.a
+  CC      drivers/misc/mediatek/aee/mrdump/mboot_params.o
+  AR      drivers/misc/mediatek/aee/aed/built-in.a
+  CC      drivers/media/media-device.o
+  CC      drivers/media/v4l2-core/v4l2-common.o
+  CC      net/netfilter/xt_helper.o
+  CC      drivers/media/v4l2-core/v4l2-dv-timings.o
+  CC      net/netfilter/xt_hl.o
+  CC      drivers/mmc/core/core.o
+  CC      net/netfilter/xt_iprange.o
+  CC      drivers/media/v4l2-core/v4l2-mem2mem.o
+  CC      drivers/misc/mediatek/aee/mrdump/mrdump_control.o
+  CC      net/netfilter/xt_l2tp.o
+  CC      drivers/misc/mediatek/aee/mrdump/mrdump_hw.o
+  CC      drivers/misc/mediatek/aee/mrdump/mrdump_full.o
+  AR      drivers/media/v4l2-core/built-in.a
+  CC      drivers/media/media-devnode.o
+  CC      net/netfilter/xt_length.o
+  CC      drivers/misc/mediatek/aee/mrdump/mrdump_mini.o
+  CC      drivers/media/media-entity.o
+In file included from ../include/linux/printk.h:7,
+                 from ../include/linux/kernel.h:13,
+                 from ../include/asm-generic/bug.h:18,
+                 from ../arch/arm64/include/asm/bug.h:37,
+                 from ../include/linux/bug.h:5,
+                 from ../drivers/misc/mediatek/aee/mrdump/mrdump_mini.c:6:
+../drivers/misc/mediatek/aee/mrdump/mrdump_mini.c: In function ‘mrdump_mini_add_tsk_ti’:
+../include/linux/kern_levels.h:5:18: warning: format ‘%lx’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘struct task_struct *’ [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:369:9: note: in expansion of macro ‘KERN_NOTICE’
+  369 |  printk(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~~~~
+../drivers/misc/mediatek/aee/mrdump/mrdump_mini.c:409:3: note: in expansion of macro ‘pr_notice’
+  409 |   pr_notice("mrdump: cpu:[%d] invalid task pointer:0x%lx\n",
+      |   ^~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: format ‘%lx’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘struct task_struct *’ [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:369:9: note: in expansion of macro ‘KERN_NOTICE’
+  369 |  printk(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~~~~
+../drivers/misc/mediatek/aee/mrdump/mrdump_mini.c:427:2: note: in expansion of macro ‘pr_notice’
+  427 |  pr_notice("mrdump: cpu[%d] tsk:0x%lx ti:0x%lx\n", cpu, tsk, ti);
+      |  ^~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: format ‘%lx’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘struct thread_info *’ [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:369:9: note: in expansion of macro ‘KERN_NOTICE’
+  369 |  printk(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~~~~
+../drivers/misc/mediatek/aee/mrdump/mrdump_mini.c:427:2: note: in expansion of macro ‘pr_notice’
+  427 |  pr_notice("mrdump: cpu[%d] tsk:0x%lx ti:0x%lx\n", cpu, tsk, ti);
+      |  ^~~~~~~~~
+  CC      net/netfilter/xt_limit.o
+  CC      drivers/mmc/core/bus.o
+  CC      net/netfilter/xt_mac.o
+  CC      drivers/media/media-request.o
+  CC      drivers/misc/mediatek/aee/mrdump/mrdump_panic.o
+  CC      net/netfilter/xt_multiport.o
+  CC      drivers/mmc/core/host.o
+In file included from ../include/linux/printk.h:7,
+                 from ../include/linux/kernel.h:13,
+                 from ../include/linux/delay.h:22,
+                 from ../drivers/misc/mediatek/aee/mrdump/mrdump_panic.c:6:
+../drivers/misc/mediatek/aee/mrdump/mrdump_panic.c: In function ‘mrdump_parse_chosen’:
+../include/linux/kern_levels.h:5:18: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘phys_addr_t’ {aka ‘long long unsigned int’} [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:369:9: note: in expansion of macro ‘KERN_NOTICE’
+  369 |  printk(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~~~~
+../drivers/misc/mediatek/aee/mrdump/mrdump_panic.c:268:4: note: in expansion of macro ‘pr_notice’
+  268 |    pr_notice("%s: mrdump_cbaddr=%x, mrdump_cbsize=%x\n",
+      |    ^~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘phys_addr_t’ {aka ‘long long unsigned int’} [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:369:9: note: in expansion of macro ‘KERN_NOTICE’
+  369 |  printk(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |         ^~~~~~~~~~~
+../drivers/misc/mediatek/aee/mrdump/mrdump_panic.c:268:4: note: in expansion of macro ‘pr_notice’
+  268 |    pr_notice("%s: mrdump_cbaddr=%x, mrdump_cbsize=%x\n",
+      |    ^~~~~~~~~
+  AR      drivers/media/built-in.a
+  CC      drivers/mmc/host/mediatek/ComboA/mt6765/msdc_cust.o
+  CC      drivers/misc/mediatek/aee/mrdump/mrdump_helper.o
+  CC      net/netfilter/xt_owner.o
+../drivers/mmc/host/mediatek/ComboA/mt6765/msdc_cust.c: In function ‘msdc_dump_ldo_sts’:
+../drivers/mmc/host/mediatek/ComboA/mt6765/msdc_cust.c:150:1: warning: multi-line comment [-Wcomment]
+  150 | //#if !defined(CONFIG_MTK_MSDC_BRING_UP_BYPASS) \
+      | ^
+  CC      drivers/mmc/core/mmc.o
+  CC      net/netfilter/xt_physdev.o
+  CC      drivers/misc/mediatek/aee/mrdump/mrdump_arm64.o
+../drivers/mmc/host/mediatek/ComboA/mt6765/msdc_cust.c:150:1: warning: multi-line comment [-Wcomment]
+  150 | //#if !defined(CONFIG_MTK_MSDC_BRING_UP_BYPASS) \
+      | ^
+  CC      drivers/mmc/host/mediatek/ComboA/mt6765/autok_dvfs.o
+  AR      drivers/misc/mediatek/aee/mrdump/built-in.a
+  AR      drivers/misc/mediatek/aee/built-in.a
+  CC      drivers/misc/mediatek/atf/atf_logger.o
+  CC      net/netfilter/xt_pkttype.o
+  CC      drivers/mmc/core/mmc_ops.o
+  AR      drivers/misc/mediatek/atf/built-in.a
+  CC      drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/mt6761/mtk_cpufreq_platform.o
+  CC      net/netfilter/xt_policy.o
+  CC      drivers/mmc/host/mediatek/ComboA/sd.o
+  AR      drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/mt6761/built-in.a
+  AR      drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/built-in.a
+  CC      drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_main.o
+  CC      drivers/mmc/core/sd.o
+  CC      net/netfilter/xt_quota.o
+  CC      net/netfilter/xt_quota2.o
+  CC      drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_interface.o
+  CC      drivers/mmc/core/sd_ops.o
+  CC      net/netfilter/xt_realm.o
+  CC      drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_api.o
+  CC      drivers/mmc/core/sdio.o
+  CC      net/netfilter/xt_recent.o
+  CC      drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_debug.o
+  CC      drivers/mmc/core/sdio_ops.o
+  CC      drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_hybrid.o
+  CC      drivers/mmc/core/sdio_bus.o
+  CC      drivers/mmc/host/mediatek/ComboA/dbg.o
+  CC      net/netfilter/xt_sctp.o
+  AR      drivers/misc/mediatek/base/power/cpufreq_v1/src/built-in.a
+  AR      drivers/misc/mediatek/base/power/cpufreq_v1/built-in.a
+  CC      drivers/misc/mediatek/base/power/cpuidle_v3/mtk_cpuidle.o
+  CC      drivers/mmc/core/sdio_cis.o
+  CC      net/netfilter/xt_socket.o
+  AR      drivers/misc/mediatek/base/power/cpuidle_v3/built-in.a
+  CC      drivers/misc/mediatek/base/power/eem_v2/mt6761/mtk_eem.o
+  CC      drivers/mmc/core/sdio_io.o
+  CC      net/netfilter/xt_state.o
+  CC      drivers/mmc/host/mediatek/ComboA/msdc_tune.o
+  CC      drivers/mmc/core/sdio_irq.o
+  CC      net/netfilter/xt_statistic.o
+  CC      drivers/mmc/host/mediatek/ComboA/autok.o
+  CC      drivers/misc/mediatek/base/power/eem_v2/mt6761/mtk_eem_platform.o
+  CC      drivers/misc/mediatek/base/power/eem_v2/mt6761/mtk_eem_internal.o
+  CC      net/netfilter/xt_string.o
+  CC      drivers/mmc/core/slot-gpio.o
+  CC      drivers/misc/mediatek/base/power/eem_v2/mt6761/mtk_eem_api.o
+  CC      net/netfilter/xt_tcpmss.o
+  CC      drivers/mmc/core/pwrseq.o
+  AR      drivers/misc/mediatek/base/power/eem_v2/mt6761/built-in.a
+  AR      drivers/misc/mediatek/base/power/eem_v2/built-in.a
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hotplug_cb.o
+  CC      drivers/mmc/core/block.o
+  CC      net/netfilter/xt_time.o
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hps_main.o
+  CC      net/netfilter/xt_u32.o
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hps_core.o
+  AR      net/netfilter/built-in.a
+  CC      net/sctp/sm_statetable.o
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hps_procfs.o
+  CC      drivers/mmc/host/mediatek/ComboA/sw-cqhci-crypto.o
+  CC      net/sctp/sm_statefuns.o
+  AR      drivers/mmc/host/mediatek/ComboA/built-in.a
+  AR      drivers/mmc/host/mediatek/built-in.a
+  AR      drivers/mmc/host/built-in.a
+  AR      drivers/misc/mic/bus/built-in.a
+  AR      drivers/misc/mic/built-in.a
+  AR      drivers/net/dsa/b53/built-in.a
+  AR      drivers/net/dsa/microchip/built-in.a
+  AR      drivers/net/dsa/mv88e6xxx/built-in.a
+  AR      drivers/net/dsa/built-in.a
+  CC      drivers/net/phy/mdio-boardinfo.o
+  CC      drivers/mmc/core/queue.o
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hps_cpu.o
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hps_api.o
+  CC      drivers/mmc/core/mmc_crypto.o
+  CC      drivers/net/phy/phy.o
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hps_algo.o
+  CC      drivers/mmc/core/crypto.o
+  CC      drivers/misc/mediatek/base/power/hps_v3/mtk_hps_ops.o
+  AR      drivers/misc/mediatek/base/power/hps_v3/built-in.a
+  CC      drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.o
+  CC      drivers/mmc/core/mtk_mmc_block.o
+  CC      drivers/net/phy/phy-c45.o
+  CC      drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6761.o
+  AR      drivers/misc/mediatek/base/power/leakage_table_v2/built-in.a
+  CC      drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_main.o
+  CC      drivers/net/phy/phy-core.o
+  AR      drivers/mmc/core/built-in.a
+  AR      drivers/mmc/built-in.a
+  CC      drivers/misc/mediatek/base/power/mcdi/mt6761/mtk_mcdi_plat.o
+  CC      drivers/misc/mediatek/base/power/mcdi/mt6761/mtk_mcdi_state.o
+  CC      net/sctp/sm_sideeffect.o
+  AR      drivers/misc/mediatek/base/power/mcdi/mt6761/built-in.a
+  CC      drivers/misc/mediatek/blocktag/blocktag.o
+  CC      drivers/net/phy/phy_device.o
+  CC      drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_util.o
+  CC      drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_profile.o
+  CC      net/sctp/protocol.o
+  AR      drivers/misc/mediatek/blocktag/built-in.a
+  CC      net/tipc/addr.o
+  CC      drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_cpc.o
+  CC      drivers/net/phy/mdio_bus.o
+  AR      drivers/misc/mediatek/base/power/mcdi/mcdi_v1/built-in.a
+  CC      drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_governor.o
+  CC      net/tipc/bcast.o
+  CC      net/sctp/endpointola.o
+  CC      drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_governor_lib.o
+  CC      drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_governor_hint.o
+  CC      net/tipc/bearer.o
+  CC      drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_api.o
+  CC      drivers/net/phy/mdio_device.o
+  CC      net/sctp/associola.o
+  AR      drivers/misc/mediatek/base/power/mcdi/built-in.a
+  CC      drivers/misc/mediatek/base/power/mdpm_v1/mt6761/mtk_mdpm_platform.o
+  AR      drivers/misc/mediatek/base/power/mdpm_v1/mt6761/built-in.a
+  CC      drivers/misc/mediatek/base/power/mdpm_v1/mtk_mdpm_common.o
+  CC      drivers/net/phy/swphy.o
+  CC      net/tipc/core.o
+  AR      drivers/misc/mediatek/base/power/mdpm_v1/built-in.a
+  CC      drivers/misc/mediatek/base/power/mt6761/mtk_picachu.o
+  CC      net/sctp/transport.o
+  CC      drivers/net/phy/fixed_phy.o
+  AR      drivers/misc/mediatek/base/power/mt6761/built-in.a
+  CC      drivers/misc/mediatek/base/power/pbm_v4/mtk_pbm.o
+  CC      net/tipc/link.o
+In file included from ../include/linux/kernel.h:13,
+                 from ../drivers/misc/mediatek/base/power/pbm_v4/mtk_pbm.c:6:
+../drivers/misc/mediatek/base/power/pbm_v4/mtk_pbm.c: In function ‘ma_to_mw’:
+../include/linux/kern_levels.h:5:18: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘unsigned int’ [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/printk.h:487:10: note: in definition of macro ‘printk_ratelimited’
+  487 |   printk(fmt, ##__VA_ARGS__);    \
+      |          ^~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:505:21: note: in expansion of macro ‘KERN_NOTICE’
+  505 |  printk_ratelimited(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |                     ^~~~~~~~~~~
+../drivers/misc/mediatek/base/power/pbm_v4/mtk_pbm.c:155:3: note: in expansion of macro ‘pr_notice_ratelimited’
+  155 |   pr_notice_ratelimited("[%s] wrong volt=%d, set 4V\n",
+      |   ^~~~~~~~~~~~~~~~~~~~~
+../include/linux/kern_levels.h:5:18: warning: format ‘%d’ expects a matching ‘int’ argument [-Wformat=]
+    5 | #define KERN_SOH "\001"  /* ASCII Start Of Header */
+      |                  ^~~~~~
+../include/linux/printk.h:487:10: note: in definition of macro ‘printk_ratelimited’
+  487 |   printk(fmt, ##__VA_ARGS__);    \
+      |          ^~~
+../include/linux/kern_levels.h:13:21: note: in expansion of macro ‘KERN_SOH’
+   13 | #define KERN_NOTICE KERN_SOH "5" /* normal but significant condition */
+      |                     ^~~~~~~~
+../include/linux/printk.h:505:21: note: in expansion of macro ‘KERN_NOTICE’
+  505 |  printk_ratelimited(KERN_NOTICE pr_fmt(fmt), ##__VA_ARGS__)
+      |                     ^~~~~~~~~~~
+../drivers/misc/mediatek/base/power/pbm_v4/mtk_pbm.c:155:3: note: in expansion of macro ‘pr_notice_ratelimited’
+  155 |   pr_notice_ratelimited("[%s] wrong volt=%d, set 4V\n",
+      |   ^~~~~~~~~~~~~~~~~~~~~
+  CC      net/sctp/chunk.o
+  AR      drivers/misc/mediatek/base/power/pbm_v4/built-in.a
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mt6761/mtk_power_gs_6357_array.o
+  AR      drivers/net/phy/built-in.a
+  CC      drivers/net/ppp/ppp_generic.o
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mt6761/mtk_cg_array.o
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mt6761/mtk_dcm_array.o
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mt6761/mtk_power_gs_sp.o
+  CC      net/sctp/sm_make_chunk.o
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mt6761/mtk_power_gs_compare.o
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mt6761/mtk_power_gs_dump_pmic.o
+  CC      net/tipc/discover.o
+  AR      drivers/misc/mediatek/base/power/power_gs_v1/mt6761/built-in.a
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.o
+  CC      drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.o
+  CC      net/tipc/msg.o
+  CC      drivers/net/ppp/bsd_comp.o
+  AR      drivers/misc/mediatek/base/power/power_gs_v1/built-in.a
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6761/mtk_ppm_platform.o
+  CC      net/sctp/ulpevent.o
+  CC      drivers/net/ppp/ppp_deflate.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6761/mtk_ppm_power_data.o
+  CC      drivers/net/ppp/ppp_mppe.o
+  CC      net/tipc/name_distr.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6761/mtk_ppm_cobra_algo.o
+  CC      drivers/net/ppp/pppox.o
+  CC      net/sctp/inqueue.o
+  AR      drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6761/built-in.a
+  AR      drivers/misc/mediatek/base/power/ppm_v3/src/mach/built-in.a
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_main.o
+  CC      net/tipc/subscr.o
+  CC      net/tipc/monitor.o
+  CC      net/sctp/outqueue.o
+  CC      drivers/net/ppp/pptp.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_interface.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_api.o
+  CC      net/tipc/name_table.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_profile.o
+  AR      drivers/net/ppp/built-in.a
+  CC      drivers/net/slip/slhc.o
+  CC      net/sctp/ulpqueue.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_ipi.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_dlpt.o
+  CC      net/tipc/net.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_sys_boost.o
+  CC      net/sctp/tsnmap.o
+  AR      drivers/net/slip/built-in.a
+  CC      drivers/net/usb/r8152.o
+  CC      net/tipc/netlink.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_ptpod.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_pwr_thro.o
+  CC      net/sctp/bind_addr.o
+  CC      net/tipc/netlink_compat.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_thermal.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_lcm_off.o
+  CC      net/sctp/socket.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_hard_user_limit.o
+  CC      net/tipc/node.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_user_limit.o
+  CC      drivers/net/usb/usbnet.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_force_limit.o
+  CC      drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_ut.o
+  CC      net/tipc/socket.o
+  AR      drivers/misc/mediatek/base/power/ppm_v3/src/built-in.a
+  AR      drivers/misc/mediatek/base/power/ppm_v3/built-in.a
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_lp_kernfs.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_lp_sysfs.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_idle_sysfs.o
+  AR      drivers/net/usb/built-in.a
+  CC      drivers/net/wireless/virt_wifi.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_lp_sysfs_procfs.o
+  AR      drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/built-in.a
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_select.o
+  AR      drivers/net/wireless/built-in.a
+  CC      drivers/net/dummy.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_internal.o
+  CC      drivers/net/mii.o
+  CC      net/tipc/eth_media.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_profile.o
+  CC      net/tipc/topsrv.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_idle_twam.o
+  CC      drivers/net/Space.o
+  CC      net/sctp/primitive.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_dpidle.o
+  CC      drivers/net/loopback.o
+  CC      net/tipc/group.o
+  CC      net/sctp/output.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_sodi.o
+  CC      drivers/net/tun.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_spm_resource_req.o
+  CC      net/sctp/input.o
+  CC      net/tipc/udp_media.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_sleep.o
+  CC      net/tipc/sysctl.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_sleep_init.o
+  CC      drivers/misc/mediatek/base/power/spm/common/mtk_vcore_dvfs.o
+  CC      net/tipc/diag.o
+  CC      net/sctp/debug.o
+  AR      drivers/misc/mediatek/base/power/spm/common/built-in.a
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm.o
+  AR      net/tipc/built-in.a
+  CC      net/unix/af_unix.o
+  CC      net/sctp/stream.o
+  CC      drivers/net/veth.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_twam.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_irq.o
+  CC      net/sctp/auth.o
+  CC      drivers/net/virtio_net.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_dram.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_internal.o
+  CC      net/sctp/offload.o
+  CC      net/unix/garbage.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_suspend.o
+  CC      net/sctp/stream_sched.o
+  CC      net/unix/sysctl_net_unix.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_suspend_process.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_sspm.o
+  AR      net/unix/built-in.a
+  AR      drivers/misc/ti-st/built-in.a
+  AR      drivers/nfc/built-in.a
+  CC      drivers/net/net_failover.o
+  CC      net/sctp/stream_sched_prio.o
+  CC      drivers/misc/mediatek/btif/common/mtk_btif.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_power.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_fs.o
+  CC      net/sctp/stream_sched_rr.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_utils.o
+  AR      drivers/net/built-in.a
+  AR      drivers/nvme/host/built-in.a
+  AR      drivers/nvme/target/built-in.a
+  AR      drivers/nvme/built-in.a
+  CC      drivers/misc/mediatek/base/power/udi_v1/mtk_udi.o
+  AR      drivers/misc/mediatek/base/power/udi_v1/built-in.a
+  CC      net/vmw_vsock/af_vsock.o
+  CC      net/sctp/stream_interleave.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_idle_cond_check.o
+  CC      drivers/misc/mediatek/btif/common/mtk_btif_exp.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_idle.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_vcore_dvfs.o
+  CC      net/sctp/proc.o
+  CC      drivers/misc/mediatek/base/power/spm/mt6761/mtk_spm_resource_req_console.o
+  CC      drivers/misc/mediatek/btif/common/btif_dma_plat.o
+  CC      net/vmw_vsock/af_vsock_tap.o
+  AR      drivers/misc/mediatek/base/power/spm/mt6761/built-in.a
+  AR      drivers/misc/mediatek/base/power/spm/built-in.a
+  CC      drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power.o
+  CC      net/sctp/sysctl.o
+  CC      drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_internal.o
+  CC      drivers/misc/mediatek/btif/common/btif_plat.o
+  CC      drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_api.o
+  CC      net/vmw_vsock/vsock_addr.o
+  CC      net/sctp/ipv6.o
+  CC      drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6761.o
+  AR      drivers/misc/mediatek/btif/common/built-in.a
+  AR      drivers/misc/mediatek/btif/built-in.a
+  CC      drivers/misc/uid_sys_stats.o
+  AR      drivers/misc/mediatek/base/power/upower_v2/built-in.a
+  AR      drivers/misc/mediatek/base/power/built-in.a
+  AR      drivers/misc/mediatek/base/built-in.a
+  CC      drivers/misc/mediatek/c2k_usb/f_rawbulk.o
+  CC      drivers/nvmem/core.o
+  CC      net/vmw_vsock/diag.o
+  CC      net/sctp/diag.o
+  CC      drivers/misc/mediatek/c2k_usb/rawbulk.o
+  CC      net/vmw_vsock/virtio_transport.o
+  CC      drivers/nvmem/nvmem-sysfs.o
+  AR      net/sctp/built-in.a
+  GEN     net/wireless/shipped-certs.c
+  CC      net/wireless/core.o
+  CC      drivers/nvmem/mtk-devinfo.o
+  CC      drivers/misc/mediatek/c2k_usb/rawbulk_transfer.o
+  CC      drivers/nvmem/mt6359-efuse.o
+  CC      net/vmw_vsock/virtio_transport_common.o
+  AR      drivers/nvmem/built-in.a
+  AS      drivers/misc/mediatek/cache/cache-mtk-aarch64.o
+  AR      drivers/misc/mediatek/cache/built-in.a
+  CC      net/xfrm/xfrm_policy.o
+  AR      drivers/misc/mediatek/c2k_usb/built-in.a
+  CC      drivers/misc/mediatek/cam_cal/src/mt6761/../common/v1/eeprom_driver.o
+  AR      net/vmw_vsock/built-in.a
+  CC      net/socket.o
+  CC      net/wireless/sysfs.o
+  CC      drivers/misc/mediatek/cam_cal/src/mt6761/../common/v1/eeprom_i2c_common_driver.o
+  CC      drivers/misc/mediatek/cam_cal/src/mt6761/eeprom_i2c_custom_driver.o
+  CC      net/wireless/radiotap.o
+  CC      drivers/misc/mediatek/cam_cal/src/mt6761/cam_cal_list.o
+  CC      drivers/misc/mediatek/cam_cal/src/mt6761/eeprom_i2c_dev.o
+  AR      drivers/misc/mediatek/cam_cal/src/mt6761/built-in.a
+  AR      drivers/misc/mediatek/cam_cal/src/built-in.a
+  AR      drivers/misc/mediatek/cam_cal/built-in.a
+  CC      drivers/misc/mediatek/cameraisp/dip/cameradip_dummy.o
+  AR      drivers/misc/mediatek/cameraisp/dip/built-in.a
+FDVT: Drv use 3.5 folder
+  CC      drivers/misc/mediatek/cameraisp/fdvt/3.5/camera_fdvt.o
+  CC      net/xfrm/xfrm_state.o
+  CC      net/wireless/util.o
+  AR      drivers/misc/mediatek/cameraisp/fdvt/3.5/built-in.a
+  CC      drivers/misc/mediatek/cameraisp/fdvt/fdvt_dummy.o
+  AR      drivers/misc/mediatek/cameraisp/fdvt/built-in.a
+cameraisp drv by platform 
+  CC      drivers/misc/mediatek/cameraisp/src/mt6761/camera_isp.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_lib_fo.o
+  CC      net/xfrm/xfrm_hash.o
+  CC      net/xfrm/xfrm_input.o
+  CC      net/wireless/reg.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_lib_load_img.o
+  CC      net/xfrm/xfrm_output.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_lib_sys.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_private_log.o
+  CC      net/xfrm/xfrm_sysctl.o
+  CC      net/wireless/scan.o
+  CC      net/xfrm/xfrm_replay.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_lib_time.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_lib_main.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_ld_md_errno.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_broadcast.o
+  CC      net/xfrm/xfrm_device.o
+  CC      net/xfrm/xfrm_proc.o
+  CC      net/wireless/nl80211.o
+  CC      drivers/misc/mediatek/ccci_util/ccci_util_dummy.o
+  AR      drivers/misc/mediatek/ccci_util/built-in.a
+  CC      drivers/of/base.o
+  CC      net/xfrm/xfrm_algo.o
+  AR      drivers/misc/mediatek/cameraisp/src/mt6761/built-in.a
+  AR      drivers/misc/mediatek/cameraisp/src/built-in.a
+  AR      drivers/misc/mediatek/cameraisp/built-in.a
+  CC      drivers/misc/mediatek/ccmni/ccmni.o
+  CC      drivers/of/device.o
+  CC      net/xfrm/xfrm_user.o
+  CC      drivers/of/platform.o
+  CC      drivers/of/property.o
+  AR      drivers/misc/mediatek/ccmni/built-in.a
+  CC      drivers/misc/mediatek/cirq/mtk_sys_cirq.o
+  CC      net/xfrm/xfrm_ipcomp.o
+  CC      drivers/of/kobj.o
+  AR      drivers/misc/mediatek/cirq/built-in.a
+  CC      drivers/misc/mediatek/clkbuf/mtk-clkbuf-bridge.o
+  CC      drivers/of/fdt.o
+  CC      drivers/misc/mediatek/clkbuf/src/mtk-clkbuf-pmic.o
+  CC      net/xfrm/xfrm_interface.o
+  CC      drivers/misc/mediatek/clkbuf/src/mtk-clkbuf-ctl.o
+  CC      drivers/of/fdt_address.o
+  CC      drivers/misc/mediatek/clkbuf/src/mtk-clkbuf-hw.o
+  AR      net/xfrm/built-in.a
+  CC      drivers/opp/core.o
+  CC      drivers/of/address.o
+  AR      drivers/misc/mediatek/clkbuf/built-in.a
+  CC      drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_common.o
+  CC      drivers/of/irq.o
+  CC      drivers/opp/cpu.o
+  CC      drivers/opp/of.o
+  CC      drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.o
+  CC      drivers/of/of_net.o
+../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c: In function ‘check_cm_mgr_status_internal’:
+../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c:943:3: error: ‘memset’ used with length equal to number of elements without multiplication by element size [-Werror=memset-elt-size]
+  943 |   memset(count_ack, 0, ARRAY_SIZE(count_ack));
+      |   ^~~~~~
+../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c:958:3: error: ‘memset’ used with length equal to number of elements without multiplication by element size [-Werror=memset-elt-size]
+  958 |   memset(max_load, 0, ARRAY_SIZE(count_ack));
+      |   ^~~~~~
+In file included from ../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.c:41:
+At top level:
+../drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_data_mt6761.h:488:12: warning: ‘cm_get_version’ defined but not used [-Wunused-variable]
+  488 | static int cm_get_version = -1;
+      |            ^~~~~~~~~~~~~~
+  AR      drivers/opp/built-in.a
+  CC      net/compat.o
+cc1: all warnings being treated as errors
+make[5]: *** [../scripts/Makefile.build:334: drivers/misc/mediatek/cm_mgr/mtk_cm_mgr_mt6761.o] Error 1
+make[4]: *** [../scripts/Makefile.build:637: drivers/misc/mediatek/cm_mgr] Error 2
+make[3]: *** [../scripts/Makefile.build:637: drivers/misc/mediatek] Error 2
+make[2]: *** [../scripts/Makefile.build:637: drivers/misc] Error 2
+make[2]: *** Waiting for unfinished jobs....
+  CC      net/wireless/mlme.o
+  CC      drivers/of/of_mdio.o
+  CC      drivers/of/of_reserved_mem.o
+  AR      drivers/of/built-in.a
+make[1]: *** [/home/runner/work/ydt1-mt6761/ydt1-mt6761/kernel/Makefile:1161: drivers] Error 2
+make[1]: *** Waiting for unfinished jobs....
+  CC      net/sysctl_net.o
+  CC      net/wireless/ibss.o
+  CC      net/wireless/sme.o
+  CC      net/wireless/chan.o
+  CC      net/wireless/ethtool.o
+  CC      net/wireless/mesh.o
+  CC      net/wireless/ap.o
+  CC      net/wireless/trace.o
+  CC      net/wireless/ocb.o
+  CC      net/wireless/of.o
+  CC      net/wireless/shipped-certs.o
+  CC      net/wireless/wext-core.o
+  CC      net/wireless/wext-proc.o
+  CC      net/wireless/wext-spy.o
+  CC      net/wireless/wext-priv.o
+  AR      net/wireless/built-in.a
+  AR      net/built-in.a
+make[1]: Leaving directory '/home/runner/work/ydt1-mt6761/ydt1-mt6761/kernel/out'
+make: *** [Makefile:153: sub-make] Error 2
+make: Leaving directory '/home/runner/work/ydt1-mt6761/ydt1-mt6761/kernel'
