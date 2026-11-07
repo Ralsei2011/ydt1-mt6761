@@ -63,9 +63,12 @@ jobs:
             echo "HOSTCC=clang-12" >> "$GITHUB_ENV"
             echo "CLANG_TRIPLE=aarch64-linux-gnu-" >> "$GITHUB_ENV"
           else
+            # 优先用 gcc-10：和盒子上那套一致，避开 gcc11 的 always_inline/format 等兼容问题
             sudo apt-get install -y gcc-aarch64-linux-gnu
+            sudo apt-get install -y gcc-10-aarch64-linux-gnu || echo "gcc-10 不可用，回落默认 gcc"
           fi
           echo "CROSS_COMPILE=aarch64-linux-gnu-" >> "$GITHUB_ENV"
+          (aarch64-linux-gnu-gcc-10 --version || aarch64-linux-gnu-gcc --version) | head -1
 
       - name: 缓存内核源码（1.76 GB 仓库，首次较慢）
         id: cache-kernel
@@ -102,8 +105,13 @@ jobs:
           set -o pipefail
           # TEXT_OFFSET=0x8000：迁就 LK 固定装载地址 0x40008000
           # （base 0x40000000 是 2MiB 对齐，text_offset 0x8000，满足 arm64 规则）
+          EXTRA=""
+          if command -v aarch64-linux-gnu-gcc-10 >/dev/null 2>&1; then
+            EXTRA="CC=aarch64-linux-gnu-gcc-10"
+          fi
+          echo "使用: ${EXTRA:-默认 gcc}"
           make -C kernel O=out ARCH=arm64 -j"$(nproc)" \
-            TEXT_OFFSET=0x00008000 \
+            $EXTRA TEXT_OFFSET=0x00008000 \
             HOSTCFLAGS="$HOSTCFLAGS" KCFLAGS="$KCFLAGS" \
             Image Image.gz-dtb 2>&1 | tee -a /tmp/ci/build.log
 
