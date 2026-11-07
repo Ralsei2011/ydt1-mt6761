@@ -97,7 +97,7 @@ jobs:
           # 直接照抄 /root/build_duoqin.sh 的成功配方：
           #   KCFLAGS="-fcommon -Wno-error" + HOSTCFLAGS 带 -fcommon + 目标 Image.gz-dtb
           HOSTCFLAGS: "-Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89 -fcommon"
-          KCFLAGS: "-fcommon -Wno-error -Wno-error=format -Wno-error=format-truncation -Wno-error=maybe-uninitialized -Wno-error=array-bounds -Wno-error=stringop-overflow"
+          KCFLAGS: "-fcommon -Wno-error -Wno-error=format -Wno-error=format-truncation -Wno-error=maybe-uninitialized -Wno-error=uninitialized -Wno-error=array-bounds -Wno-error=stringop-overflow -Wno-error=stringop-truncation -Wno-error=address-of-packed-member -Wno-error=override-init -Wno-error=dangling-pointer"
         run: |
           set -o pipefail
           # TEXT_OFFSET=0x8000：迁就 LK 固定装载地址 0x40008000
