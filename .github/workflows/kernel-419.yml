@@ -1,0 +1,126 @@
+# 4.19 内核构建（Duoqin F21 Pro 树，MT6761 / arm64）
+# 与 kernel-build.yml 的区别：仓库是 GKI 风格（带 build.config.*），1.76 GB，分支 android-11.0
+# 触发：Actions 页面手动 Run workflow，或改动本文件
+name: build-mt6761-kernel-419
+
+on:
+  workflow_dispatch:
+    inputs:
+      defconfig:
+        type: choice
+        default: k61v1_64_bsp_defconfig
+        options:
+          - k61v1_64_bsp_defconfig
+          - k61v1_64_bsp_debug_defconfig
+          # 注：duoqin_f21pro.config 是 fragment 不是 defconfig，需要时用
+          #     scripts/kconfig/merge_config.sh 合并，不能直接当 defconfig 传
+      toolchain:
+        description: "工具链：gcc = apt gcc-11（快）；clang = apt clang-12"
+        type: choice
+        default: gcc
+        options: [gcc, clang]
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/kernel-419.yml"
+
+env:
+  KERNEL_REPO: https://github.com/JamiKettunen/android_kernel_duoqin_mt6761
+  KERNEL_REF: android-11.0
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 180
+    steps:
+      - name: 腾磁盘
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          swap-storage: true
+
+      - uses: actions/checkout@v4
+
+      - name: 装依赖与工具链
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential bc bison flex libssl-dev libelf-dev \
+                                 zip unzip python3 cpio rsync
+          if [ "${{ github.event.inputs.toolchain || 'gcc' }}" = "clang" ]; then
+            sudo apt-get install -y clang-12 lld-12 llvm-12
+            echo "CC=clang-12" >> "$GITHUB_ENV"
+            echo "HOSTCC=clang-12" >> "$GITHUB_ENV"
+            echo "CLANG_TRIPLE=aarch64-linux-gnu-" >> "$GITHUB_ENV"
+          else
+            sudo apt-get install -y gcc-aarch64-linux-gnu
+          fi
+          echo "CROSS_COMPILE=aarch64-linux-gnu-" >> "$GITHUB_ENV"
+
+      - name: 缓存内核源码（1.76 GB 仓库，首次较慢）
+        id: cache-kernel
+        uses: actions/cache@v4
+        with:
+          path: kernel
+          key: kernel419-${{ env.KERNEL_REF }}-${{ hashFiles('.github/workflows/kernel-419.yml') }}
+
+      - name: 拉内核源码
+        if: steps.cache-kernel.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 --branch "$KERNEL_REF" "$KERNEL_REPO" kernel
+          du -sh kernel
+
+      - name: 配置
+        run: |
+          mkdir -p /tmp/ci
+          make -C kernel O=out ARCH=arm64 \
+            "${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}" 2>&1 | tee /tmp/ci/build.log
+
+      - name: 编译 Image
+        run: |
+          set -o pipefail
+          make -C kernel O=out ARCH=arm64 -j"$(nproc)" Image 2>&1 | tee -a /tmp/ci/build.log
+
+      - name: 校验产物位宽（必须是 ARM\x64）
+        run: |
+          IMG=kernel/out/arch/arm64/boot/Image
+          ls -l "$IMG"
+          python3 - "$IMG" <<'PY'
+          import sys
+          d = open(sys.argv[1], 'rb').read(0x40)
+          print("magic @0x38:", d[0x38:0x3c])
+          if d[0x38:0x3c] != b'ARM\x64':
+              sys.exit("不是合法 ARM64 Image")
+          PY
+
+      - name: 失败时把日志推到 ci-logs-419 分支
+        if: failure()
+        run: |
+          mkdir -p /tmp/ci ci-fail
+          [ -f /tmp/ci/build.log ] || echo "(无日志)" > /tmp/ci/build.log
+          { echo "run: $GITHUB_RUN_ID  toolchain: ${{ github.event.inputs.toolchain || 'gcc' }}"; echo "----- 最后 250 行 -----"; tail -250 /tmp/ci/build.log; } > ci-fail/last-419.log
+          git config user.name "ci-bot-419"
+          git config user.email "ci-bot@localhost"
+          git checkout -B ci-logs-419
+          git add -f ci-fail/last-419.log
+          git commit -m "419 failure log run $GITHUB_RUN_ID" || true
+          git push -f origin ci-logs-419
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mt6761-419-${{ github.event.inputs.defconfig || 'k61v1_64_bsp_defconfig' }}
+          path: |
+            kernel/out/arch/arm64/boot/Image
+            kernel/out/arch/arm64/boot/dts/mediatek/*.dtb
+          if-no-files-found: warn
+          retention-days: 14
