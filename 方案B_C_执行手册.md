@@ -46,6 +46,42 @@
 
 ---
 
+## 0.5 L1 实测结果（2026-11-07 20:05，已做）
+
+**做了什么**：把盒子上编好的 4.19 AArch64 Image（30,525,448 B）装进当前 Lineage boot 的
+ramdisk，`kernel_addr` 设 `0x40080000`，刷入 boot（30,736 KB），重启。
+**结果**：不亮屏、USB 不枚举、2 分钟无响应。刷回原厂 boot 后 80 秒正常开机，数据无损。
+
+**expdb 里拿到的**（两次启动记录一致）：
+
+```
+[ATF] save kernel info
+[ATF] NOTICE:  Kernel is 32Bit
+[ATF] NOTICE:  pc=0x40008000, r0=0x0, r1=0x1a69, r2=0x47880000
+[ATF] BL3-1: Next image spsr = 0x1da
+```
+
+**决定性发现（这条改写了原计划）**：
+
+```
+mblock-create-debug-R[15].start: 0x40008000, sz: 0x7800000, name: kernel_addr_mb
+booting linux @ 0x40008000, ramdisk @ 0x51b00000 (943796)
+```
+
+**LK 把内核装到固定的 `0x40008000`，boot.img 头里的 `kernel_addr` 被完全忽略。**
+所以我改的 `--kernel-addr 0x40080000` 没有生效，镜像实际落在 0x40008000。
+而 ARM64 Image 要求「2 MiB 对齐基址 + text_offset 0x80000」，正确落点是 `0x40080000`——**差 0x78000**。
+
+**另一个坑**：日志里的 `[LK]jump to K64 0x40008000` 是**无条件打印**的假信号
+（32 位正常启动也会打这一行），不能当判据。真正的判据只有 ATF 的 `Kernel is X Bit`。
+
+**结论修正**：32 位 LK 这条路的第一道墙，不是"ATF 不认 64 位"，而是
+**"LK 永远把内核装到 0x40008000，装不到 64 位镜像要求的地址"**。
+要绕过它只有两条：改 LK（无源码），或让 Image 迁就这个地址。
+
+---
+
+
 ## 1. 方案 B｜整机 64 位（本质：移植同芯片 ROM）
 
 ### 1.1 到底要动哪些分区
