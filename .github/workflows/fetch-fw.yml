@@ -1,5 +1,6 @@
 name: fetch-donor-fw
 
+# 触发标记 1
 # 用途：本机直连 Google Drive 困难，借 GitHub 运行器把供体固件拉下来，
 # 只挑出启动链相关的几个分区（preloader/lk/tee/scatter，约 10 MB），
 # 提交到 fw-donor 分支，之后可以直接用 raw 链接取回。
