@@ -31,3 +31,13 @@ Image
 Image.gz*
 System.map
 *.log
+
+# 临时抓取的文件
+fw_*.html
+pllk_raw.txt
+pllk_log.txt
+pllk_now.txt
+pllk_now.log
+donor_scatter.txt
+donor_boot.img
+ramoops*.txt
