@@ -1,0 +1,95 @@
+name: fetch-donor-fw
+
+# 用途：本机直连 Google Drive 困难，借 GitHub 运行器把供体固件拉下来，
+# 只挑出启动链相关的几个分区（preloader/lk/tee/scatter，约 10 MB），
+# 提交到 fw-donor 分支，之后可以直接用 raw 链接取回。
+#
+# 供体：Qin F21 Pro（k61v1_64_bsp / MT6761）官方固件
+#       Qin_F21_Pro_MT6761_V2.1.6_041121.zip  1.37 GB
+#       Google Drive file id: 1jLy_ahE1vPjyuUC5C-EQSMBa2LkPBejF
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fetch-fw.yml"
+
+concurrency:
+  group: fetch-donor-fw
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 装解压工具
+        run: sudo apt-get update && sudo apt-get install -y p7zip-full unzip
+
+      - name: 从 Google Drive 下载
+        run: |
+          set -o pipefail
+          ID=1jLy_ahE1vPjyuUC5C-EQSMBa2LkPBejF
+          URL="https://drive.usercontent.google.com/download?id=${ID}&export=download&confirm=t"
+          echo "下载中: $URL"
+          curl -L --retry 5 --retry-delay 5 --max-time 5400 -o fw.bin "$URL" || true
+          ls -lh fw.bin || true
+          echo "--- 文件头 ---"
+          head -c 16 fw.bin | xxd || true
+          SZ=$(stat -c%s fw.bin 2>/dev/null || echo 0)
+          echo "大小: $SZ"
+          if [ "$SZ" -lt 100000000 ]; then
+            echo "::error::文件太小，可能是配额页面或直链失效"
+            head -c 800 fw.bin || true
+            exit 1
+          fi
+
+      - name: 解包并挑出启动链
+        run: |
+          mkdir -p x out
+          cd x
+          7z x -y ../fw.bin > /dev/null || unzip -o ../fw.bin > /dev/null || true
+          echo "=== 解出的顶层 ==="
+          ls -la | head -30
+          # 递归再解一层（很多固件包是 zip 套 zip）
+          find . -maxdepth 2 -iname "*.zip" -o -maxdepth 2 -iname "*.7z" | while read z; do
+            echo "再解: $z"; 7z x -y "$z" > /dev/null || true
+          done
+          echo "=== 找目标文件 ==="
+          cd ..
+          find x -type f \( -iname "*preloader*" -o -iname "lk*.img" -o -iname "lplk*" \
+                -o -iname "tee*.img" -o -iname "*scatter*.txt" -o -iname "*.bin" \) \
+               -size -20M -size +10k -print0 2>/dev/null \
+            | while IFS= read -r -d '' f; do cp -v "$f" out/ 2>/dev/null; done
+          ls -lh out/ || true
+          du -sh out || true
+
+      - name: 提交到 fw-donor 分支
+        run: |
+          git config user.name "fw-bot"
+          git config user.email "fw-bot@localhost"
+          git checkout -B fw-donor
+          mkdir -p donor
+          cp -v out/* donor/ 2>/dev/null || true
+          du -sh donor
+          git add -f donor
+          git commit -m "donor: Qin F21 Pro 启动链分区（run $GITHUB_RUN_ID）" || echo "无变化"
+          git push -f origin fw-donor
+
+      - name: 失败也留个现场
+        if: failure()
+        run: |
+          git config user.name "fw-bot"
+          git config user.email "fw-bot@localhost"
+          git checkout -B fw-donor
+          mkdir -p donor
+          { echo "run: $GITHUB_RUN_ID"; ls -la; echo "--- x ---"; ls -la x 2>/dev/null | head -40; } > donor/FAILED.txt
+          git add -f donor/FAILED.txt
+          git commit -m "fetch failed log" || true
+          git push -f origin fw-donor || true
