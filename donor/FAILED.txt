@@ -1,0 +1,29 @@
+run: 42445646405
+total 1188
+drwxr-xr-x 6 runner runner   4096 Nov  8 04:09 .
+drwxr-xr-x 3 runner runner   4096 Nov  8 04:09 ..
+drwxr-xr-x 7 runner runner   4096 Nov  8 04:09 .git
+-rw-r--r-- 1 runner runner    123 Nov  8 04:09 .gitattributes
+drwxr-xr-x 3 runner runner   4096 Nov  8 04:09 .github
+-rw-r--r-- 1 runner runner    437 Nov  8 04:09 .gitignore
+-rw-r--r-- 1 runner runner   7757 Nov  8 04:09 64位可行性分析.md
+-rw-r--r-- 1 runner runner  13639 Nov  8 04:09 YDT1_总览.md
+-rw-r--r-- 1 runner runner  85426 Nov  8 04:09 base.dtb
+-rw-r--r-- 1 runner runner    131 Nov  8 04:09 cj.txt
+drwxr-xr-x 2 runner runner   4096 Nov  8 04:09 donor
+-rw-r--r-- 1 runner runner  16071 Nov  8 04:09 donor_scatter.txt
+-rw-r--r-- 1 runner runner   2695 Nov  8 04:09 fdt_parse.py
+-rw-r--r-- 1 runner runner   2040 Nov  8 04:09 fw.bin
+-rw-r--r-- 1 runner runner  38800 Nov  8 04:09 fw_get.html
+-rw-r--r-- 1 runner runner      0 Nov  8 04:09 fw_go.html
+-rw-r--r-- 1 runner runner  87668 Nov  8 04:09 pllk_log.txt
+-rw-r--r-- 1 runner runner 172103 Nov  8 04:09 pllk_now.txt
+-rw-r--r-- 1 runner runner 157888 Nov  8 04:09 pllk_raw.txt
+-rw-r--r-- 1 runner runner 265019 Nov  8 04:09 ramoops.txt
+-rw-r--r-- 1 runner runner 265014 Nov  8 04:09 ramoops2.txt
+-rw-r--r-- 1 runner runner   3007 Nov  8 04:09 scan_bits.py
+-rw-r--r-- 1 runner runner   1854 Nov  8 04:09 strs.py
+drwxr-xr-x 2 runner runner   4096 Nov  8 04:09 tools
+-rw-r--r-- 1 runner runner     14 Nov  8 04:09 ulefone_files.txt
+-rw-r--r-- 1 runner runner  31763 Nov  8 04:09 方案B_C_执行手册.md
+--- x ---
